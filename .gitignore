@@ -10,3 +10,4 @@ dev/*
 cache/*
 static/db-backup/*
 static/upload/*
+released.php
