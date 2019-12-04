@@ -11,7 +11,7 @@
 	Options -Indexes
 	DirectoryIndex index.php index.html
 	RewriteBase /
-	RewriteRule ^assets/(.+)$ esite_template/template_1/assets/$1 [L]
+	RewriteRule ^assets/(.+)$ template/default/assets/$1 [L]
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteRule ^(.*)$ index.php?/$1 [PT,L]
