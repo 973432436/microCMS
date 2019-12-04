@@ -1,0 +1,27 @@
+<!-- BEGIN SIMILAR PRODUCTS -->
+        {if($products_data)}
+        {php}shuffle($products_data);{/php}
+        <div class="row margin-bottom-40">
+          <div class="col-md-12 col-sm-12 bxslider-wrapper bxslider-wrapper-similar-products">
+            <h2>相关商品</h2>
+              <ul class="bxslider bxslider-similar-products" data-slides-phone="1" data-slides-tablet="2" data-slides-desktop="4" data-slide-margin="20">
+              	{loop $products_data $k1 $v1}
+                <li>
+                  <div class="product-item">
+                    <div class="pi-img-wrapper">
+                      <img src="{$v1['image'][0]}" class="img-responsive" alt="{$v1['name']}">
+                      <div>
+                        <a href="{$v1['image'][0]}" class="btn btn-default fancybox-button">放大</a>
+                      </div>
+                    </div>
+                    <h3><a href="{$v1['product_url']}">{$v1['name']}</a></h3>
+                    <div class="pi-price">{$v1['price']}</div>
+                    <a href="javascript:;" class="btn btn-default add2cart" onclick="apps['cart-add']({$v1['id']},1);">加入购物车</a>
+                  </div>
+                </li>
+                {/loop}
+              </ul>
+          </div>
+        </div>
+        <!-- END SIMILAR PRODUCTS -->
+    		{/if}

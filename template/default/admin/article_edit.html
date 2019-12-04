@@ -1,0 +1,68 @@
+{layout layout_main.html}
+{php}
+$form = Admin::run()->article();
+{/php}
+<h3>编辑文章<a href="article.html" class="actionBtn">文章列表</a></h3>
+<form action="" method="post" enctype="multipart/form-data" class="formBasic" onsubmit="ajaxForm(this,callback_ajax,true);return false;">
+	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+		<tr>
+			<td width="80" align="right">文章分类</td>
+			<td>
+				<select name="cat_id" style="width:auto;">
+					<option value="">-无-</option>
+					{loop Admin::run()->article_categorys() $k $v}
+					<option value="{$v['cat_id']}">{$v['cat_name']}</option>
+					{/loop}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">页面别名</td>
+			<td><input type="text" name="form[filename]" id="" value="{$form['filename']}" size="50" class="inpMain"/></td>
+		</tr>
+		<tr>
+			<td align="right">排序</td>
+			<td><input type="text" name="form[sort]" id="" value="{$form['sort']}" size="10" class="inpMain"/></td>
+		</tr>
+		<tr>
+			<td align="right">标题</td>
+			<td><input type="text" name="form[title]" id="" value="{$form['title']}" size="50" class="inpMain"/></td>
+		</tr>
+		<tr>
+			<td align="right">关键词</td>
+			<td><input type="text" name="form[keywords]" id="" value="{$form['keywords']}" size="50" class="inpMain"/></td>
+		</tr>
+		<tr>
+			<td align="right">页面描述</td>
+			<td><textarea name="form[description]" placeholder="description" rows="3" cols="52" class="inpMain">{$form['description']}</textarea></td>
+		</tr>
+		<tr>
+			<td align="right">缩略图</td>
+			<td>
+				<input type="hidden" name="form[image]" value="{$form['image']}" data-file="form_file[]" />
+				<input type="file" name="form_file[]" multiple="multiple" class="inpFlie" onchange="ajaxFileUpload(this,location.href,{'act':'admin/file_upload'},callback_ajax,'jpg|jpeg|png|gif')" /> <span>(支持多文件)</span>
+				<div data-imgs="form_file">
+					{if $form['image']}{loop explode(',',$form['image']) $k $v}
+					<img src="{$v}" width="100" height="100">
+					{/loop}{/if}
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">页面内容</td>
+			<td>{Admin::run()->html_editor('form[content]',$form['content'])}</td>
+		</tr>
+		<tr>
+			<td align="right">自定义属性</td>
+			<td><textarea name="form[defined]" placeholder="" rows="3" cols="52" class="inpMain">{$form['defined']}</textarea></td>
+		</tr>
+		<tr>
+			<td align="right"></td>
+			<td>
+				<input type="hidden" name="act" value="admin/article_save" />
+				<input type="hidden" name="form[id]" value="{intval($form['id'])}" />
+				<input name="submit" class="btn" type="submit" value="提交">
+			</td>
+		</tr>
+	</table>
+</form>

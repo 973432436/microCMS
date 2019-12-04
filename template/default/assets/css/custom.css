@@ -1,0 +1,14 @@
+/* here you can put your own css to customize and override the theme */
+
+.goods-list{}
+.goods-list .row-title{height: 36px;line-height: 36px;}
+
+.width-auto{width: auto;}
+.margin-l-5{margin-left: 5px;}
+.margin-r-5{margin-right: 5px;}
+.margin-b-5{margin-bottom: 5px;}
+a.no-color{color: inherit;}
+.font-size-12{font-size: 12px;}
+.font-size-14{font-size: 14px;}
+.font-size-16{font-size: 16px;}
+.data-content img{max-width: 98%;}

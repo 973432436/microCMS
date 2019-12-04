@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- Head BEGIN -->
+<head>
+  <meta charset="utf-8">
+  <title>购物车 - {$site_config['site_title']}</title>
+  <meta content="{$site_config['site_description']}" name="description">
+  <meta content="{$site_config['site_keywords']}" name="keywords">
+  <meta property="og:site_name" content="{$site_config['site_name']}">
+  <meta property="og:title" content="{$site_config['site_title']}">
+  <meta property="og:description" content="{$site_config['site_description']}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content=""><!-- link to image for socio -->
+  <meta property="og:url" content="//{$_SERVER['HTTP_HOST']}/">
+
+  {template tpl_header_source.html}
+</head>
+<!-- Head END -->
+
+<!-- Body BEGIN -->
+<body>
+    {template tpl_header.html}
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-12 col-sm-12">
+            <h1>我的购物车</h1>
+            <div class="shopping-cart-page">
+            	<form action="" method="post" onsubmit="ecms.ajaxForm(this, apps['orders-add'], false);return false;">
+            		<input type="hidden" name="act" value="orders_add" />
+	              <div class="shopping-cart-data clearfix" id="cart-pagedata"></div>
+	              <a class="btn btn-default" href="/">继续购物 <i class="fa fa-shopping-cart"></i></a>
+	              <a><input class="btn btn-primary" type="submit" value="提交订单" /></a>
+              </form>
+            </div>
+            <script>jQuery(document).ready(function(){apps['cart-render']({php}echo json_encode($cart);{/php});});</script>
+	          <script type="text/html" id="cart-pagedata-tpl">
+	          	<%if(typeof(products)=='undefined'||!products){%>
+	          	<p>您的购物车还没有商品！</p>
+	          	<%}else{%>
+	            <div class="table-wrapper-responsive">
+	            <table summary="Shopping cart">
+	              <tr>
+	                <th class="shopping-cart-description" colspan="2">商品</th>
+	                <th class="shopping-cart-quantity">数量</th>
+	                <th class="shopping-cart-price">单价</th>
+	                <th class="shopping-cart-total" colspan="2">金额</th>
+	              </tr>
+	              <%for(var k1 in products){%>
+	              <%var v1 = products[k1];%>
+	              <tr>
+	                <td class="shopping-cart-image"><a href="<%=v1['info']['product_url']%>"><img src="<%=v1['info']['image'][0]%>" alt="<%=v1['info']['name']%>"></a></td>
+	                <td class="shopping-cart-description">
+	                  <h3><a href="<%=v1['info']['product_url']%>"><%=v1['info']['name']%></a></h3>
+	                  <p><strong>Item 1</strong> - Color: Green; Size: S</p>
+	                  <em>More info is here</em>
+	                </td>
+	                <td class="shopping-cart-quantity">
+	                  <div class="product-quantity">
+	                      <input type="text" id="product-quantity-<%=v1['id']%>" value="<%=v1['numbers']%>" class="form-control input-sm product-quantity-val" data-id="<%=v1['id']%>" data-product_id="<%=v1['info']['id']%>" data-old-numbers="<%=v1['numbers']%>">
+	                  </div>
+	                </td>
+	                <td class="shopping-cart-price">
+	                  <strong><span>$</span><%=v1['price']%></strong>
+	                </td>
+	                <td class="shopping-cart-total">
+	                  <strong><span>$</span><%=v1['money']%></strong>
+	                </td>
+	                <td class="del-goods-col">
+	                  <a class="del-goods" href="javascript:apps['cart-del'](<%=v1['id']%>);"><i class="fa fa-times"></i></a>
+	                </td>
+	              </tr>
+	              <%}%>
+	            </table>
+	            </div>
+	            <div class="col-md-12 col-sm-12 shopping-total">
+	              <ul>
+	                <li>
+	                  <em>商品金额</em>
+	                  <strong class="price"><span>$</span><%=money%></strong>
+	                </li>
+	              </ul>
+	            </div>
+							<%}%>
+	          </script>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+
+        {template product-relation.html}
+      </div>
+    </div>
+
+    {template tpl_steps.html}
+
+    {template tpl_footer.html}
+
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS(REQUIRED ONLY FOR CURRENT PAGE) -->
+    <script type="text/javascript" src="assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>  
+    <script type="text/javascript" src="assets/plugins/bxslider/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src='assets/plugins/zoom/jquery.zoom.min.js'></script><!-- product zoom -->
+    <script src="assets/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script><!-- Quantity -->
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            App.init();
+            App.initBxSlider();
+            App.initImageZoom();
+            App.initTouchspin();
+        });
+    </script>
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

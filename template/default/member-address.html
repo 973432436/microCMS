@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- Head BEGIN -->
+<head>
+  <meta charset="utf-8">
+  <title>地址管理-{$site_config['site_title']}</title>
+  <meta content="{$site_config['site_description']}" name="description">
+  <meta content="{$site_config['site_keywords']}" name="keywords">
+  <meta property="og:site_name" content="{$site_config['site_name']}">
+  <meta property="og:title" content="{$site_config['site_title']}">
+  <meta property="og:description" content="{$site_config['site_description']}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content=""><!-- link to image for socio -->
+  <meta property="og:url" content="">
+
+  {template tpl_header_source.html}
+</head>
+<!-- Head END -->
+
+<!-- Body BEGIN -->
+<body>
+    {template tpl_header.html}
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+          {template member-left.html}
+
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-9 col-sm-9">
+            <div class="content-page">
+            	<table class="table table-bordered">
+        				<tr>
+        					<th width="30">#</th>
+        					<th width="100">收货人</th>
+        					<th width="100">联系电话</th>
+        					<th width="60">邮编</th>
+        					<th width="">地址</th>
+        					<th width="80">操作</th>
+        				</tr>
+	            	{if( $address_list )}
+	            	{loop $address_list $k $v}
+	            	<tr{if($v['is_default'])} style="background:#dff0d8;" title="默认收货地址"{/if}>
+	            		<td>{$v['id']}</td>
+	            		<td>{$v['username']}</td>
+	            		<td>{$v['phone']}</td>
+	            		<td>{$v['postalCode']}</td>
+	            		<td>{$v['address']}</td>
+	            		<td>
+	            			<a href="javascript:void(0);" class="" onclick="apps['address_edit']({$v['id']});">编辑</a>
+	            		</td>
+	            	</tr>
+	            	{/loop}
+	            	{else}
+	            	<tr><td colspan="3" align="center">未找到相关数据</td></tr>
+	            	{/if}
+        			</table>
+        			<form class="form form-horizontal" action="" method="post" onsubmit="ecms.ajaxForm(this, apps['address_edit_callback'], false);return false;">
+        				<input type="hidden" name="act" value="address_edit">
+        				<input type="hidden" name="id" value="0">
+	        			<table class="table table-bordered">
+	        				<tr><th colspan="2">编辑收货地址</th></tr>
+	        				<tr>
+	        					<th width="100">邮政编码</th>
+	        					<td><input type="text" name="postalCode" class="form-control" /></td>
+	        				</tr>
+	        				<tr>
+	        					<th width="100">联系电话</th>
+	        					<td><input type="text" name="phone" class="form-control" /></td>
+	        				</tr>
+	        				<tr>
+	        					<th width="100">收货人</th>
+	        					<td><input type="text" name="username" class="form-control" /></td>
+	        				</tr>
+	        				<tr>
+	        					<th width="100">收货地址</th>
+	        					<td>
+	        						<!-- "countryCode state city line1 line2 -->
+	        						<select name="countryCode" class="form-control width-auto pull-left margin-r-5 margin-b-5" title="国家代码">
+	        							{if($CountryCode)}
+	        							{loop $CountryCode $k $v}
+	        							<option value="{$v['countryCode']}">{$v['countryCode']} - {$v['country_cn']}</option>
+	        							{/loop}
+	        							{/if}
+	        						</select>
+	        						<input type="text" name="state" class="form-control width-auto pull-left margin-r-5 margin-b-5" value="" title="省份" placeholder="省份" />
+	        						<input type="text" name="city" class="form-control width-auto pull-left margin-r-5 margin-b-5" value="" title="城市" placeholder="城市" />
+	        						<input type="text" name="line1" class="form-control width-auto pull-left margin-r-5 margin-b-5" value="" title="街道" placeholder="街道" />
+	        						<input type="text" name="line2" class="form-control width-auto pull-left margin-r-5 margin-b-5" value="" title="门牌号" placeholder="门牌号" />
+	        					</td>
+	        				</tr>
+	        				<tr>
+	        					<th width="100">设为默认</th>
+	        					<td>
+	        						<select name="is_default" class="form-control width-auto">
+	        							<option value="0">否</option>
+	        							<option value="1">是</option>
+	        						</select>
+	        					</td>
+	        				</tr>
+	        				<tr>
+	        					<th></th>
+	        					<td>
+	        						<input type="reset" value="重置" class="btn btn-default" >
+	        						<input type="submit" value="提交" class="btn btn-success" >
+	        					</td>
+	        				</tr>
+	        			</table>
+        			</form>
+          	</div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    {template tpl_brands.html}
+
+    {template tpl_steps.html}
+
+    {template tpl_footer.html}
+
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+    <script type="text/javascript" src="assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script><!-- pop up -->
+    <script type="text/javascript" src="assets/plugins/bxslider/jquery.bxslider.min.js"></script><!-- slider for products -->
+    <script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript" ></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            App.init();
+            App.initUniform();
+            App.initBxSlider();
+        });
+    </script>
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

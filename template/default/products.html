@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- Head BEGIN -->
+<head>
+  <title>{$category_info['title']}</title>
+  <meta charset="utf-8">
+  <meta content="{$category_info['description']}" name="description">
+  <meta content="{$category_info['keywords']}" name="keywords">
+  <meta property="og:site_name" content="{$site_config['site_name']}">
+  <meta property="og:title" content="{$category_info['title']}">
+  <meta property="og:description" content="{$category_info['description']}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content=""><!-- link to image for socio -->
+  <meta property="og:url" content="">
+
+  {template tpl_header_source.html}
+</head>
+<!-- Head END -->
+
+<!-- Body BEGIN -->
+<body>
+    {template tpl_header.html}
+
+    <div class="title-wrapper">
+      <div class="container"><div class="container-inner">
+        <h1><span>MEN</span> CATEGORY</h1>
+        <em>Over 4000 Items are available here</em>
+      </div></div>
+    </div>
+
+    <div class="main">
+      <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="products.html">商品列表</a></li>
+            {if($category_info)}
+            <li class="active"><a href="{$category_info['category_url']}">{$category_info['unique_id']}</a></li>
+            {/if}
+        </ul>
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+          <!-- BEGIN SIDEBAR -->
+          <div class="sidebar col-md-3 col-sm-5">
+          	{template product_left.html}
+          </div>
+          <!-- END SIDEBAR -->
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-9 col-sm-7">
+            <!-- BEGIN PRODUCT LIST -->
+            <div class="row product-list">
+            	{ephp}$_products_data = EsiteApp::app()->products_data(12);{/ephp}
+              {if($_products_data)}
+              <!-- PRODUCT ITEM START -->
+              {loop $_products_data $k1 $v1}
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="{$v1['image'][0]}" class="img-responsive" alt="{$v1['name']}">
+                    <div>
+                      <a href="{$v1['image'][0]}" class="btn btn-default fancybox-button">放大</a>
+                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view" onclick="apps.product_pop_up(this)" product-data='{ephp}echo json_encode($v1);{/ephp}'>详情</a>
+                    </div>
+                  </div>
+                  <h3><a href="{$v1['product_url']}">{$v1['name']}</a></h3>
+                  <div class="pi-price">${$v1['price']}</div>
+                  <a href="javascript:;" class="btn btn-default add2cart" onclick="apps['cart-add']({$v1['id']},1);">加入购物车</a>
+                </div>
+              </div>
+              {/loop}
+              <!-- PRODUCT ITEM END -->
+              {/if}
+            </div>
+            <!-- END PRODUCT LIST -->
+            <!-- BEGIN PAGINATOR -->
+            <div class="row">
+            	{e}$_pager_data = EsiteApp::app()->pager_data(['tag_start'=>'<ul class="pagination pull-right">']);{/e}
+              <div class="col-md-4 col-sm-4 items-info">{$_pager_data['summary_code']}</div>
+              <div class="col-md-8 col-sm-8">
+                {$_pager_data['code']}
+              </div>
+            </div>
+            <!-- END PAGINATOR -->
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    {template tpl_brands.html}
+
+    {template tpl_steps.html}
+
+    {template tpl_footer.html}
+    
+    {template tpl_product_fast_view.html}
+
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS(REQUIRED ONLY FOR CURRENT PAGE) -->
+    <script type="text/javascript" src="assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="assets/plugins/bxslider/jquery.bxslider.min.js"></script><!-- slider for products -->
+    <script src="assets/plugins/rateit/src/jquery.rateit.js" type="text/javascript"></script>
+    <script type="text/javascript" src='assets/plugins/zoom/jquery.zoom.min.js'></script><!-- product zoom -->
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script><!-- for slider-range -->
+    <script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript" ></script>
+    <script src="assets/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script><!-- Quantity -->
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        App.init();
+        App.initBxSlider(); 
+        App.initImageZoom();
+        App.initSliderRange();
+        App.initUniform(); 
+        App.initTouchspin();
+      });
+    </script>
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
+    <script>pageScript.push('products-list');</script>
+</body>
+<!-- END BODY -->
+</html>

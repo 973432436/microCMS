@@ -1,0 +1,201 @@
+<script>var pageScript = [];</script>
+<!-- BEGIN TOP BAR -->
+<div class="pre-header">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN TOP BAR LEFT PART -->
+            <div class="col-md-6 col-sm-6 additional-shop-info">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>{$site_config['tel']}</span></li>
+                    <!-- BEGIN CURRENCIES -->
+                    <li class="shop-currencies">
+                        <a href="javascript:void(0);" class="current">USD</a>
+                    </li>
+                    <!-- END CURRENCIES -->
+                    <!-- BEGIN LANGS -->
+                    <li class="langs-block">
+                        <a href="javascript:void(0);" class="current">简体 <i class="fa fa-angle-down"></i></a>
+                        <div class="langs-block-others-wrapper"><div class="langs-block-others">
+                          <a href="javascript:void(0);">繁体</a>
+                          <a href="javascript:void(0);">英文</a>
+                        </div></div>
+                    </li>
+                    <!-- END LANGS -->
+                </ul>
+            </div>
+            <!-- END TOP BAR LEFT PART -->
+            <!-- BEGIN TOP BAR MENU -->
+            <div class="col-md-6 col-sm-6 additional-nav">
+                <ul class="list-unstyled list-inline pull-right">
+                	{if(isset($_SESSION['user_id']) && $_SESSION['user_id'])}
+                    <li><a href="member-account.html">{$_SESSION['username']}</a></li>
+                    <li><a href="javascript:void(0);" onclick="apps['member-exit']();">退出</a></li>
+                    {else}
+                    <li><a href="login-page.html">登录</a></li>
+                    {/if}
+                </ul>
+            </div>
+            <!-- END TOP BAR MENU -->
+        </div>
+    </div>        
+</div>
+<!-- END TOP BAR -->
+
+    <!-- BEGIN HEADER -->
+    <div role="navigation" class="navbar header no-margin">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <a href="index.html" class="navbar-brand"><img src="assets/img/logo_red.png" alt="Metronic Shop UI"></a><!-- LOGO -->
+            </div>
+            <!-- BEGIN CART -->
+            <div class="cart-block cart-data">
+                <div class="cart-info">
+                    <a href="javascript:void(0);" class="cart-info-count">{$cart['numbers']} 件</a>
+                    <a href="javascript:void(0);" class="cart-info-value">${$cart['money']}</a>
+                </div>
+                <i class="fa fa-shopping-cart"></i>
+                <!-- BEGIN CART CONTENT -->
+                <div class="cart-content-wrapper">
+                  <div class="cart-content">
+                    <ul class="scroller cart-content-list" style="height: {php}echo ($cart['numbers']*65<250?$cart['numbers']*65:250);{/php}px;">
+                      {if($cart['products'])}
+                      {loop $cart['products'] $k1 $v1}
+                      <li data-id="{$v1['id']}">
+                        <a href="{$v1['info']['product_url']}"><img src="{$v1['info']['image'][0]}" alt="{$v1['info']['name']}" width="37" height="34"></a>
+                        <span class="cart-content-count">x {$v1['numbers']}</span>
+                        <strong><a href="{$v1['info']['product_url']}">{$v1['info']['name']}</a></strong>
+                        <em>${$v1['money']}</em>
+                        <a href="javascript:apps['cart-del']({$v1['id']}, {$v1['product_id']});" class="del-goods"><i class="fa fa-times"></i></a>
+                      </li>
+                      {/loop}
+                      {/if}
+                    </ul>
+                    <div class="text-right">
+                      <a href="shopping-cart.html" class="btn btn-primary">查看购物车</a>
+                    </div>
+					<script type="text/html" class="cart-content-list">
+					<%if(typeof(cart['products'])!='undefined'&&cart['products']){%>
+					  <%for(var k1 in cart['products']){%>
+					  <li data-id="<%=cart['products'][k1]['id']%>">
+					    <a href="<%=cart['products'][k1]['info']['product_url']%>"><img src="<%=cart['products'][k1]['info']['image'][0]%>" alt="<%=cart['products'][k1]['info']['name']%>" width="37" height="34"></a>
+					    <span class="cart-content-count">x <%=cart['products'][k1]['numbers']%></span>
+					    <strong><a href="<%=cart['products'][k1]['info']['product_url']%>"><%=cart['products'][k1]['info']['name']%></a></strong>
+					    <em>$<%=cart['products'][k1]['money']%></em>
+					    <a href="javascript:apps['cart-del'](<%=cart['products'][k1]['id']%>);" class="del-goods"><i class="fa fa-times"></i></a>
+					  </li>
+					  <%}%>
+					<%}%>
+					</script>
+                  </div>
+                </div>
+                <!-- END CART CONTENT -->
+            </div>
+            <!-- END CART -->
+            <!-- BEGIN NAVIGATION -->
+            <div class="collapse navbar-collapse mega-menu">
+                <ul class="nav navbar-nav">
+                	<!--
+                    	作者：973432436@qq.com
+                    	时间：2018-05-24
+                    	描述：商品导航
+                    -->
+                	{if($product_categorys)}{loop $product_categorys $k1 $v1}
+                    <li class="dropdown">
+                      <a href="{$v1['category_url']}">{$v1['cat_name']} {if($v1['children'])}<i class="fa fa-angle-down"></i>{/if}</a>
+                      {if($v1['children'])}
+                      <!-- BEGIN DROPDOWN MENU -->
+                      <ul class="dropdown-menu">
+                      	{loop $v1['children'] $k2 $v2}
+                        <li class="dropdown-submenu">
+                          <a href="{$v2['category_url']}">{$v2['cat_name']} {if($v2['children'])}<i class="fa fa-angle-right"></i>{/if}</a>
+                          {if($v2['children'])}
+                          <ul class="dropdown-menu">
+                          	{loop $v2['children'] $k3 $v3}
+                            <li class="dropdown-submenu">
+                              <a href="{$v3['category_url']}">{$v3['cat_name']} {if($v3['children'])}<i class="fa fa-angle-right"></i>{/if}</a>
+                              {if($v3['children'])}
+                              <ul class="dropdown-menu">
+                              	{loop $v3['children'] $k4 $v4}
+                                <li><a href="{$v4['category_url']}">{$v4['cat_name']}</a></li>
+                                {/loop}
+                              </ul>
+                              {/if}
+                            </li>
+                            {/loop}
+                          </ul>
+                          {/if}
+                        </li>
+                      	{/loop}
+                      </ul>
+                      <!-- END DROPDOWN MENU -->
+                      {/if}
+                    </li>
+                    {/loop}{/if}
+                    <!--
+                    	作者：973432436@qq.com
+                    	时间：2018-05-24
+                    	描述：固定导航
+                    -->
+                    <li class="dropdown">
+                      <a href="/p1-products.html">新款 <i class="fa fa-angle-down"></i></a>
+                      <!-- BEGIN DROPDOWN MENU -->
+                      {if($products_data)}
+                      <ul class="dropdown-menu" aria-labelledby="mega-menu-catalogue">
+                        <li>
+                          <div class="nav-content">
+                          	{loop $products_data $k1 $v1}
+                          	{ephp}if($k1>=3){break;}{/ephp}
+                            <div class="product-item">
+                              <div class="pi-img-wrapper">
+                                <a href="{$v1['product_url']}"><img src="{$v1['image'][0]}" class="img-responsive" alt="{$v1['title']}"></a>
+                              </div>
+                              <h3><a href="{$v1['product_url']}">{$v1['title']}</a></h3>
+                              <div class="pi-price">${$v1['price']}</div>
+                              <a href="javascript:;" class="btn btn-default add2cart" onclick="apps['cart-add']({$v1['id']},1);">加入购物车</a>
+                            </div>
+                            {/loop}
+                          </div>
+                        </li>
+                      </ul>
+                      {/if}
+                      <!-- END DROPDOWN MENU -->
+                    </li>
+                    <li><a href="articles.html">店铺动态</a></li>
+                    <li class="dropdown"><a href="about.html">关于我们</a>
+                    	<ul class="dropdown-menu">
+		                    <li><a href="contacts.html">联系我们</a></li>
+		                    <li><a href="privacy-policy.html">隐私政策</a></li>
+		                    <li><a href="terms-conditions-page.html">协议条款</a></li>
+		                    <li><a href="faq.html">常见问题</a></li>
+                    	</ul>
+                    </li>
+                    <!-- BEGIN TOP SEARCH -->
+                    <li class="menu-search">
+                        <span class="sep"></span>
+                        <i class="fa fa-search search-btn"></i>
+                        <div class="search-box">
+                            <form action="search-result.html" method="get">
+                                <div class="input-group">
+                                    <input type="text" placeholder="Search" class="form-control">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit">Search</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div> 
+                    </li>
+                    <!-- END TOP SEARCH -->
+                </ul>
+            </div>
+            <!-- END NAVIGATION -->
+        </div>
+    </div>
+    <!-- END HEADER -->

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- Head BEGIN -->
+<head>
+  <title>{$product_data['title']}</title>
+  <meta charset="utf-8">
+  <meta content="{$product_data['description']}" name="description">
+  <meta content="{$product_data['keywords']}" name="keywords">
+  <meta property="og:site_name" content="{$site_config['site_name']}">
+  <meta property="og:title" content="{$category_info['title']}">
+  <meta property="og:description" content="{$category_info['description']}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content=""><!-- link to image for socio -->
+  <meta property="og:url" content="">
+
+	{template tpl_header_source.html}
+</head>
+<!-- Head END -->
+
+<!-- Body BEGIN -->
+<body>
+    {template tpl_header.html}
+
+    <div class="main">
+      <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="index.html">首页</a></li>
+            {if($category_info)}
+            <li class="active"><a href="{$category_info['category_url']}">{$category_info['unique_id']}</a></li>
+            {/if}
+            <li><a href="{$product_data['product_url']}">{$product_data['name']}</a></li>
+        </ul>
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+          <!-- BEGIN SIDEBAR -->
+          <div class="sidebar col-md-3 col-sm-5">
+          	{template product_left.html}
+          </div>
+          <!-- END SIDEBAR -->
+
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-9 col-sm-7">
+            <div class="product-page">
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <div class="product-main-image">
+                    <img src="{$product_data['image'][0]}" alt="{$product_data['name']}" class="img-responsive" data-BigImgSrc="{$product_data['image'][0]}">
+                  </div>
+                  <div class="product-other-images">
+                  	{if($product_data['image'])}
+                  	{loop $product_data['image'] $k1 $v1}
+                    <a href="javascript:;" class="{php}echo $k1==0?'active':'';{/php}"><img alt="{$product_data['name']}" src="{$v1}"></a>
+                    {/loop}
+                    {/if}
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <h1>{$product_data['name']}</h1>
+                  <div class="price-availability-block clearfix">
+                    <div class="price">
+                      <strong><span>￥</span>{$product_data['price']}</strong>
+                      <em>￥<span>{$product_data['price']}</span></em>
+                    </div>
+                    <div class="availability">
+                      	库存状态: <strong>正常</strong>
+                    </div>
+                  </div>
+                  <div class="description">
+                    <p>{$product_data['description']}</p>
+                  </div>
+                  <div class="product-page-options">
+                    <div class="pull-left">
+                      <label class="control-label">Size:</label>
+                      <select class="form-control input-sm">
+                        <option>L</option>
+                        <option>M</option>
+                        <option>XL</option>
+                      </select>
+                    </div>
+                    <div class="pull-left">
+                      <label class="control-label">Color:</label>
+                      <select class="form-control input-sm">
+                        <option>Red</option>
+                        <option>Blue</option>
+                        <option>Black</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="product-page-cart">
+                    <div class="product-quantity">
+                        <input id="product-quantity" type="text" value="1" readonly class="form-control input-sm">
+                    </div>
+                    <button class="btn btn-primary" type="submit" onclick="apps['cart-add']({$product_data['id']},1);">加入购物车</button>
+                  </div>
+                  <ul class="social-icons">
+                    <li><a class="facebook" data-original-title="facebook" href="javascript:;"></a></li>
+                    <li><a class="twitter" data-original-title="twitter" href="javascript:;"></a></li>
+                    <li><a class="googleplus" data-original-title="googleplus" href="javascript:;"></a></li>
+                    <li><a class="evernote" data-original-title="evernote" href="javascript:;"></a></li>
+                    <li><a class="tumblr" data-original-title="tumblr" href="javascript:;"></a></li>
+                  </ul>
+                </div>
+
+                <div class="product-page-content">
+                  <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a href="#Description" data-toggle="tab">商品描述</a></li>
+                    <li><a href="#Information" data-toggle="tab">商品参数</a></li>
+                    <li><a href="#Reviews" data-toggle="tab">用户评论 <sapn href="#SOHUCS" id="changyan_count_unit" style="display: inline;"></span></a></li>
+                  </ul>
+                  <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="Description">
+                      {$product_data['content']}
+                    </div>
+                    <div class="tab-pane fade" id="Information">
+                      <table class="datasheet">
+                        <tr>
+                          <th colspan="2">附加参数</th>
+                        </tr>
+                        <tr>
+                          <td class="datasheet-features-type">Value 1</td>
+                          <td>21 cm</td>
+                        </tr>
+                        <tr>
+                          <td class="datasheet-features-type">Value 2</td>
+                          <td>700 gr.</td>
+                        </tr>
+                        <tr>
+                          <td class="datasheet-features-type">Value 3</td>
+                          <td>10 person</td>
+                        </tr>
+                        <tr>
+                          <td class="datasheet-features-type">Value 4</td>
+                          <td>14 cm</td>
+                        </tr>
+                        <tr>
+                          <td class="datasheet-features-type">Value 5</td>
+                          <td>plastic</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="tab-pane fade" id="Reviews">
+                    	<!--PC打分版-->
+											<div id="SOHUCS" sid="product-{$product_data['id']}"></div>
+											<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+											<script type="text/javascript">
+											window._config = { showScore: true };
+											window.changyan.api.config({
+											appid: 'cytDRUqJt',
+											conf: 'prod_60c4f87fd53ddc56775c9a7bd7db5f14'
+											});
+											</script>
+											<script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sticker sticker-sale"></div>
+              </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+
+        {template product-relation.html}
+      </div>
+    </div>
+
+    {template tpl_brands.html}
+
+    {template tpl_steps.html}
+
+    {template tpl_footer.html}
+
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS(REQUIRED ONLY FOR CURRENT PAGE) -->
+    <script type="text/javascript" src="assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="assets/plugins/bxslider/jquery.bxslider.min.js"></script><!-- slider for products -->
+    <script type="text/javascript" src="assets/plugins/rateit/src/jquery.rateit.js"></script>
+    <script type="text/javascript" src='assets/plugins/zoom/jquery.zoom.min.js'></script><!-- product zoom -->
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script><!-- for slider-range -->
+    <script type="text/javascript" src="assets/plugins/uniform/jquery.uniform.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-touchspin/bootstrap.touchspin.js"></script><!-- Quantity -->
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        App.init();
+        App.initBxSlider();
+        App.initImageZoom();
+        App.initSliderRange();
+        App.initUniform();
+        App.initTouchspin();
+      });
+    </script>
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
+    <script>pageScript.push('product-other-images');</script>
+</body>
+<!-- END BODY -->
+</html>

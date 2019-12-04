@@ -1,0 +1,58 @@
+
+{if($product_categorys)}
+<ul class="list-group margin-bottom-25 sidebar-menu">
+	{loop $product_categorys $k1 $v1}
+  <li class="list-group-item clearfix {if($v1['children'])}dropdown {if(array_key_exists($k1, $category_info['fatherTree']))}active{/if}{/if}">
+  	<a href="{if($v1['children'])}javascript:void(0);{else}{$v1['category_url']}{/if}" class="{if($v1['children'])}collapsed{/if}">
+  		<i class="fa fa-angle-right"></i> {$v1['cat_name']}
+  		{if($v1['children'])}<i class="fa fa-angle-down"></i>{/if}
+  	</a>
+  	{if($v1['children'])}
+  	<ul class="dropdown-menu" style="display:block;">
+  	{loop $v1['children'] $k2 $v2}
+  	<li class="list-group-item dropdown {if($v2['children'])}dropdown {if(array_key_exists($k2, $category_info['fatherTree']))}active{/if}{/if}">
+    	<a href="{if($v2['children'])}javascript:void(0);{else}{$v2['category_url']}{/if}" class="">
+    	<i class="fa fa-circle"></i> {$v2['cat_name']}
+    	{if($v2['children'])}<i class="fa fa-angle-down"></i>{/if}
+   		</a>
+   		{if($v2['children'])}
+      <ul class="dropdown-menu" style="display:{if(array_key_exists($v2['cat_id'], $category_info['fatherTree']))}block{else}none{/if};">
+      	{loop $v2['children'] $k3 $v3}
+        <li class="list-group-item dropdown clearfix {if(array_key_exists($k3, $category_info['fatherTree']))}active{/if}">
+          <a href="{if($v3['children'])}javascript:void(0);{else}{$v3['category_url']}{/if}">
+          	<i class="fa fa-circle"></i> {$v3['cat_name']}
+          	{if($v3['children'])}<i class="fa fa-angle-down"></i>{/if}
+          </a>
+          {if($v3['children'])}
+          <ul class="dropdown-menu">
+          	{loop $v3['children'] $k4 $v4}
+            <li><a href="{$v4['category_url']}"><i class="fa fa-circle"></i> {$v4['cat_name']}</a></li>
+            {/loop}
+          </ul>
+          {/if}
+        </li>
+        {/loop}
+      </ul>
+      {/if}
+      </li>
+  	{/loop}
+  	</ul>
+  	{/if}
+  </li>
+  {/loop}
+{/if}
+
+<div class="sidebar-products clearfix">
+  {if($products_data)}
+  <h2>热卖商品</h2>
+  {php}shuffle($products_data);{/php}
+  {loop $products_data $k1 $v1}
+  {php}$sale_hot_n = isset($sale_hot_n)?$sale_hot_n+1:1;if($sale_hot_n>6){break;}{/php}
+  <div class="item">
+    <a href="{$v1['product_url']}"><img src="{$v1['image'][0]}" alt="{$v1['name']}"></a>
+    <h3><a href="{$v1['product_url']}">{$v1['name']}</a></h3>
+    <div class="price">￥{$v1['price']}</div>
+  </div>
+  {/loop}
+  {/if}
+</div>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- Head BEGIN -->
+<head>
+  <meta charset="utf-8">
+  <title>订单结算 - {$site_config['site_title']}</title>
+  <meta content="{$site_config['site_description']}" name="description">
+  <meta content="{$site_config['site_keywords']}" name="keywords">
+  <meta property="og:site_name" content="{$site_config['site_name']}">
+  <meta property="og:title" content="{$site_config['site_title']}">
+  <meta property="og:description" content="{$site_config['site_description']}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content=""><!-- link to image for socio -->
+  <meta property="og:url" content="//{$_SERVER['HTTP_HOST']}/">
+
+  {template tpl_header_source.html}
+  <style type="text/css">
+  	.price{font-weight: bold;color: #f00;}
+  </style>
+</head>
+<!-- Head END -->
+
+<!-- Body BEGIN -->
+<body>
+    {template tpl_header.html}
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-12 col-sm-12">
+            <h1>确认订单</h1>
+            <form action="" method="post" onsubmit="ecms.ajaxForm(this, apps['orders-checkout'], false);return false;">
+	        		<input type="hidden" name="act" value="orders_checkout" />
+              <div class="clearfix">
+              	<div class="table-wrapper-responsive">
+		              {if($orders_info['goods_info'])}
+			            <table class="table table-bordered">
+			              <tr>
+			                <th class="shopping-cart-description">商品</th>
+			                <th class="shopping-cart-quantity">数量</th>
+			                <th class="shopping-cart-price">单价</th>
+			                <th class="shopping-cart-total" colspan="2">金额</th>
+			              </tr>
+			              {loop $orders_info['goods_info'] $k1 $v1}
+			              <tr>
+			                <td class="shopping-cart-description">
+			                  <p>{$v1['goods_name']}</p>
+			                  <p><strong>Item 1</strong> - Color: Green; Size: S</p>
+			                  <em>More info is here</em>
+			                </td>
+			                <td class="shopping-cart-quantity">{$v1['goods_num']}</td>
+			                <td class="shopping-cart-price"><strong><span>$</span>{$v1['goods_price']}</strong></td>
+			                <td class="shopping-cart-total"><strong><span>$</span>{php}echo round($v1['goods_price']*$v1['goods_num'],2);{/php}</strong></td>
+			              </tr>
+			              {/loop}
+			              <tr><td colspan="4" align="right" style="font-size: 16px;">
+			              	商品金额<strong class="price"><span>$</span>{$orders_info['orders_info']['orders_money']}</strong>,&nbsp;
+			              	物流运费<strong class="price"><span>$</span>{$orders_info['freight']}</strong>&nbsp;
+			              	订单金额<strong class="price"><span>$</span>{$orders_info['pay_money']}</strong>&nbsp;
+			              </th></td>
+			            </table>
+			            {else}
+			            <script>window.top.location.href='shopping-cart.html';</script>
+		              {/if}
+			            </div>
+			            <div class="col-md-12 col-sm-12 margin-b-5">
+			            	<p>收货地址：</p>
+			            	<select name="address_id" class="form-control">
+			            		{if($address_list)}
+			            		{loop $address_list $k $v}
+			            		<option value="{$v['id']}" {php}if($orders_info['orders_info']['address_id']==$v['id']){echo 'selected="selected"';}{/php}>{$v['address']} {$v['username']} {$v['phone']}</option>
+			            		{/loop}
+			            		{/if}
+			            	</select>
+			            </div>
+			            <div class="col-md-12 col-sm-12 margin-bottom-40">
+			            	<p>订单备注：</p>
+			            	<textarea class="col-md-12 col-sm-12 form-control" rows="2" placeholder="请在此处填写订单备注信息..." name="notes">{$orders_info['orders_info']['notes']?$orders_info['orders_info']['notes']:''}</textarea>
+			            </div>
+              </div>
+              <a class="btn btn-default pull-left" href="/">返回购物车 <i class="fa fa-shopping-cart"></i></a>
+              <input class="btn btn-primary pull-right" type="submit" value="确认&付款" />
+	          </form>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    {template tpl_steps.html}
+
+    {template tpl_footer.html}
+
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS(REQUIRED ONLY FOR CURRENT PAGE) -->
+    <script type="text/javascript" src="assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>  
+    <script type="text/javascript" src="assets/plugins/bxslider/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src='assets/plugins/zoom/jquery.zoom.min.js'></script><!-- product zoom -->
+    <script src="assets/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script><!-- Quantity -->
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            App.init();
+            App.initBxSlider();
+            App.initImageZoom();
+        });
+    </script>
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

@@ -1,0 +1,31 @@
+{layout layout_main.html}
+<h3><a href="backup_restore.html" class="actionBtn">恢复备份</a>数据备份</h3>
+<form name="myform" method="post" action="" onsubmit="ajaxForm(this,callback_ajax,true);return false;">
+	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+		<tbody>
+			<tr>
+				<th align="center" width="80">
+					<input type="checkbox" id="chkall" onclick="this.checked?checkAll('tables[]'):uncheckAll('tables[]');" value="check" checked="checked">
+				</th>
+				<th align="left" width="200">数据表名</th>
+				<th align="center" width="80">记录数</th>
+				<th align="center"></th>
+			</tr>
+			{loop Admin::run()->table_list() $k $v}
+			<tr>
+				<td align="center"><input type="checkbox" name="tables[]" value="{$k}" checked="checked"></td>
+				<td align="left">{$v['name']}</td>
+				<td align="center">{$v['rows']}</td>
+				<td align="center"></td>
+			</tr>
+			{/loop}
+			<tr>
+				<td height="26" colspan="7">
+					<input type="hidden" name="act" value="admin/table_backup">
+					<input type="submit" class="btn" value="确定备份" onclick="">
+				</td>
+			</tr>
+	
+		</tbody>
+	</table>
+</form>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- Head BEGIN -->
+<head>
+  <meta charset="utf-8">
+  <title>{$category_info?$category_info['cat_name']:'店铺动态'} - {$site_config['site_title']}</title>
+  <meta content="{$category_info?$category_info['description']:$site_config['site_description']}" name="description">
+  <meta content="{$category_info?$category_info['keywords']:$site_config['site_keywords']}" name="keywords">
+  <meta property="og:site_name" content="{$category_info?$category_info['cat_name']:$site_config['site_name']}">
+  <meta property="og:title" content="{$category_info?$category_info['title']:$site_config['site_title']}">
+  <meta property="og:description" content="{$category_info?$category_info['description']:$site_config['site_description']}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="-CUSTOMER VALUE-"><!-- link to image for socio -->
+  <meta property="og:url" content="//{$_SERVER['HTTP_HOST']}/">
+
+  {template tpl_header_source.html}
+</head>
+<!-- Head END -->
+
+<!-- Body BEGIN -->
+<body>
+    {template tpl_header.html}
+
+    <div class="main">
+      <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/">首页</a></li>
+            <li class="active"><a href="{$category_info?$category_info['category_url']:''}">{$category_info?$category_info['cat_name']:'店铺动态'}</a></li>
+        </ul>
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+          <!-- BEGIN SIDEBAR -->
+          <div class="sidebar col-md-3 col-sm-3">
+            <ul class="list-group margin-bottom-25 sidebar-menu">
+            	{if( $article_categorys )}
+            	{loop $article_categorys $k $v}
+              <li class="list-group-item clearfix"><a href="{$v['category_url']}"><i class="fa fa-angle-right"></i> {$v['cat_name']}</a></li>
+              {/loop}
+              {/if}
+            </ul>
+          </div>
+          <!-- END SIDEBAR -->
+
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-9 col-sm-9">
+            <h2>{$category_info?$category_info['cat_name']:'店铺动态'}</h2>
+            {if($articles_data)}
+            {loop $articles_data $k $v}
+            <div class="content-page">
+              <h3><a href="{$v['article_url']}">{$v['title']}</a></h3>
+              <p>{$v['description']}</p>
+            </div>
+            {/loop}
+            {/if}
+            <!-- BEGIN PAGINATOR -->
+            <div class="row">
+            	{e}$_pager_data = EsiteApp::app()->pager_data(['tag_start'=>'<ul class="pagination pull-right">']);{/e}
+              <div class="col-md-4 col-sm-4 items-info">{$_pager_data['summary_code']}</div>
+              <div class="col-md-8 col-sm-8">
+                {$_pager_data['code']}
+              </div>
+            </div>
+            <!-- END PAGINATOR -->
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    {template tpl_brands.html}
+
+    {template tpl_steps.html}
+
+    {template tpl_footer.html}
+
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS(REQUIRED ONLY FOR CURRENT PAGE) -->
+    <script type="text/javascript" src="assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="assets/plugins/bxslider/jquery.bxslider.min.js"></script><!-- slider for products -->
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        App.init();      
+        App.initBxSlider();
+      });
+    </script>
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

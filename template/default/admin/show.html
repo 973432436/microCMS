@@ -1,0 +1,61 @@
+{layout layout_main.html}
+<h3>首页幻灯广告</h3>
+<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+	<tbody>
+		<tr>
+			<th>添加幻灯</th>
+			<th>幻灯列表</th>
+		</tr>
+		<tr>
+			<td width="350" valign="top">
+				<form action="" method="post" enctype="multipart/form-data" class="slide_info" onsubmit="ajaxForm(this,callback_ajax,true);return false;">
+					<div class="formBasic">
+						<p><span class="title">名称</span><input type="text" name="form[name]" value="" size="40" class="inpMain"></p>
+						<p><span class="title">链接</span><input type="text" name="form[url]" value="" size="40" class="inpMain"></p>
+						<p><span class="title">图片</span>
+							<input type="hidden" name="form[img]" value="" data-file="slide_img">
+							<input type="file" name="slide_img" class="inpFlie" onchange="ajaxFileUpload(this,location.href,{'act':'admin/file_upload'},callback_ajax,'jpg|jpeg|png|gif')">
+							<div data-imgs="form_file"></div>
+						</p>
+						<p><span class="title">分类</span><input type="text" name="form[category]" value="" size="40" class="inpMain"></p>
+						<p><span class="title">排序</span><input type="text" name="form[sort]" value="50" size="40" class="inpMain"></p>
+						<p><span class="title">备注</span><textarea name="form[notes]" rows="3" cols="44"></textarea></p>
+						<p>
+							<input type="hidden" name="act" value="admin/slide_save">
+							<input type="hidden" name="form[id]" value="">
+							<input name="submit" class="btn" type="submit" value="提交">
+						</p>
+					</div>
+				</form>
+			</td>
+			<td valign="top">
+				<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+					<thead>
+						<tr>
+							<td>幻灯名称</td>
+							<td width="30"></td>
+							<td width="150">分类</td>
+							<td width="50" align="center">排序</td>
+							<td width="100" align="center">操作</td>
+						</tr>
+					</thead>
+					<tbody>
+						{loop Admin::run()->slide_list() $k $v}
+						<tr title="{$v['notes']}" data="{base64_encode(json_encode($v))}" data-id="{$v['id']}">
+							<td>{$v['name']}</td>
+							<td></td>
+							<td>{$v['category']}</td>
+							<td>{$v['sort']}</td>
+							<td>
+								{if $v['img']}<a href="{$v['img']}" target="_blank">图片</a>&nbsp;|&nbsp;{/if}
+								<a href="javascript:;" onclick="slide_edit({$v['id']})">编辑</a>&nbsp;|&nbsp;
+								<a href="javascript:;" onclick="delete_row('slide',{$v['id']})">删除</a>
+							</td>
+						</tr>
+						{/loop}
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>

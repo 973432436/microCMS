@@ -1,0 +1,10 @@
+*.git
+*.svn
+*.project
+*.settings
+*.zip
+*.cache
+*.log
+dev
+dev/*
+cache/*

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- Head BEGIN -->
+<head>
+  <meta charset="utf-8">
+  <title>会员中心-{$site_config['site_title']}</title>
+  <meta content="{$site_config['site_description']}" name="description">
+  <meta content="{$site_config['site_keywords']}" name="keywords">
+  <meta property="og:site_name" content="{$site_config['site_name']}">
+  <meta property="og:title" content="{$site_config['site_title']}">
+  <meta property="og:description" content="{$site_config['site_description']}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content=""><!-- link to image for socio -->
+  <meta property="og:url" content="">
+
+  {template tpl_header_source.html}
+</head>
+<!-- Head END -->
+
+<!-- Body BEGIN -->
+<body>
+    {template tpl_header.html}
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+          {template member-left.html}
+
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-9 col-sm-9">
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-7 col-sm-7">
+                  <form class="form-horizontal" role="form" method="post" action="" onsubmit="ecms.ajaxForm(this, ecms.callback_ajax, false);return false;">
+                  	<input type="hidden" name="act" value="update_member_info" />
+                    <fieldset>
+	                  	<legend>帐号信息</legend>
+                      <div class="form-group">
+                        <label for="email" class="col-lg-4 control-label">Email <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control" id="email" name="email" value="{$member_info['email']}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="username" class="col-lg-4 control-label">用户名</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control" id="username" name="username" value="{$member_info['username']}">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="phone" class="col-lg-4 control-label">联系电话</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control" id="phone" name="phone" value="{$member_info['phone']}">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="captcha" class="col-lg-4 control-label">邮件验证码 <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                        	<div class="input-group">
+                          <input type="text" class="form-control" name="captcha" id="captcha">
+		                      <span class="input-group-btn">
+		                        <button class="btn blue" type="button" style="margin-right: 0;" onclick="apps['get-mail-captcha'](jQuery('#email').val());">获取验证码</button>
+		                      </span>
+		                      </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="reg_time" class="col-lg-4 control-label">注册时间</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control" id="reg_time" value="{php}echo date('Y-m-d H:i:s', $member_info['reg_time']);{/php}" readonly="readonly">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="last_login" class="col-lg-4 control-label">上次登录</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control" id="last_login" value="{php}echo date('Y-m-d H:i:s', $member_info['last_login']);{/php}" readonly="readonly">
+                        </div>
+                      </div>
+                    </fieldset>
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">                        
+                        <button type="submit" class="btn btn-primary">保存</button>
+                        <button type="reset" class="btn btn-default">重置</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-4 col-sm-4 pull-right">
+                  <div class="form-info">
+                    <h2><em>提示</em>信息</h2>
+                    <p>此界面基于ECMS内容管理系统开发，会员信息管理只需要填写基本的联系方式与地址即可，当您与我们达成交易时候，我们根据此处的联系方式向您发出包裹。</p>
+                    <p>为了您的个人信息安全，更新帐号信息时候，必须使用登录邮箱接收验证码进行操作验证。</p>
+                    <a class="btn btn-default">阅读详情</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+    {template tpl_brands.html}
+
+    {template tpl_steps.html}
+
+    {template tpl_footer.html}
+
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+    <script type="text/javascript" src="assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script><!-- pop up -->
+    <script type="text/javascript" src="assets/plugins/bxslider/jquery.bxslider.min.js"></script><!-- slider for products -->
+    <script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript" ></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            App.init();
+            App.initUniform();
+            App.initBxSlider();
+        });
+    </script>
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

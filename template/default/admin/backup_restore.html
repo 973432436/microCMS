@@ -1,0 +1,22 @@
+{layout layout_main.html}
+<h3><a href="backup.html" class="actionBtn">数据备份</a>恢复备份</h3>
+<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+	<tbody>
+		<tr>
+			<th width="" align="left">文件名</th>
+			<th width="100">大小</th>
+			<th width="160">备份日期</th>
+			<th width="140">操作</th>
+		</tr>
+		{loop Admin::run()->table_backup_files() $k $v}
+		<tr>
+			<td align="left">{$v['basename']}</td>
+			<td align="center">{$v['filesize']}</td>
+			<td align="center" data-time="{$v['filemtime']}">{date('Y-m-d H:i:s', $v['filemtime'])}</td>
+			<td align="center">
+				<a href="javascript:;" onclick="confirm('确认需要恢复此备份数据？')?_ajax(location.href, {'act':'admin/backup_restore', 'filename':'{$v['basename']}'}, 'POST',callback_ajax, true):null;">导入</a>
+			</td>
+		</tr>
+		{/loop}
+	</tbody>
+</table>
