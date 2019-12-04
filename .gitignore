@@ -11,3 +11,4 @@ cache/*
 static/db-backup/*
 static/upload/*
 released.php
+*esite.db
