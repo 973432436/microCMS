@@ -6,6 +6,9 @@
 		Deny from all
 	</IfModule>
 </Files>
+<FilesMatch "(LICENSE|\.txt|\.md)$">
+	Header set Content-Type "text/plain; charset=UTF-8"
+</FilesMatch>
 <IfModule mod_rewrite.c>
 	RewriteEngine On
 	Options -Indexes
