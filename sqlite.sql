@@ -84,7 +84,7 @@ create table pageview(sn varchar(16) not null default '' PRIMARY KEY, last_pv IN
 
 CREATE TABLE admin (user_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, user_name varchar(60) NOT NULL DEFAULT '' unique, email varchar(60) NOT NULL DEFAULT '', password varchar(32) NOT NULL DEFAULT '', action_list text NOT NULL default 'all', add_time INTEGER NOT NULL DEFAULT '0', last_login INTEGER NOT NULL DEFAULT '0', last_ip varchar(15) NOT NULL DEFAULT '');
 
-INSERT INTO admin (user_id, user_name, email, password, action_list, add_time, last_login, last_ip) VALUES (1, 'ebers', '', 'e10adc3949ba59abbe56e057f20f883e', 'all', 1467365040, 1534867579, '192.168.80.1');
+INSERT INTO admin (user_id, user_name, email, password, action_list, add_time, last_login, last_ip) VALUES (1, 'admin', '', 'e10adc3949ba59abbe56e057f20f883e', 'all', 1467365040, 1534867579, '192.168.80.1');
 
 CREATE TABLE admin_log (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, create_time INTEGER NOT NULL DEFAULT '0', user_name varchar(32) DEFAULT '', action varchar(255) NOT NULL DEFAULT '', ip varchar(15) NOT NULL DEFAULT '');
 

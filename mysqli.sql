@@ -82,6 +82,6 @@ create table IF NOT EXISTS pageview(sn varchar(16) not null default '', last_pv 
 
 CREATE TABLE admin (user_id int(11) NOT NULL AUTO_INCREMENT, user_name varchar(60) NOT NULL DEFAULT '', email varchar(60) NOT NULL DEFAULT '', password varchar(32) NOT NULL DEFAULT '', action_list text NOT NULL default 'all', add_time int(11) NOT NULL DEFAULT '0', last_login int(11) NOT NULL DEFAULT '0', last_ip varchar(15) NOT NULL DEFAULT '', PRIMARY KEY(user_id),unique key(user_name)) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO admin (user_id, user_name, email, password, action_list, add_time, last_login, last_ip) VALUES (1, 'ebers', '', 'e10adc3949ba59abbe56e057f20f883e', 'all', 1467365040, 1534867579, '192.168.80.1');
+INSERT INTO admin (user_id, user_name, email, password, action_list, add_time, last_login, last_ip) VALUES (1, 'admin', '', 'e10adc3949ba59abbe56e057f20f883e', 'all', 1467365040, 1534867579, '192.168.80.1');
 
 CREATE TABLE admin_log (id int(11) NOT NULL AUTO_INCREMENT, create_time int(10) NOT NULL DEFAULT '0', user_name varchar(32) DEFAULT '', action varchar(255) NOT NULL DEFAULT '', ip varchar(15) NOT NULL DEFAULT '', primary key(id)) ENGINE=MyISAM DEFAULT CHARSET=utf8;
