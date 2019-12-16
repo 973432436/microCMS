@@ -1,0 +1,82 @@
+{layout layout_main.html}
+{php}
+$form = Admin::run()->article_category();
+{/php}
+<h3>编辑文章分类<a href="article_category.html" class="actionBtn">文章分类</a></h3>
+<form action="" method="post" onsubmit="ajaxForm(this,callback_ajax,true);return false;">
+	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+		<tbody>
+			<tr>
+				<td width="80" align="right">内部分类</td>
+				<td>
+					<input type="text" name="form[category]" value="{$form['category']}" placeholder="" id="form_category" class="inpMain" />
+					<select id="category_list" style="width:auto;" onchange="jQuery('#form_category').val(this.value);">
+						<option value="">-选择-</option>
+						{loop Admin::run()->article_private_categorys() $k $v}
+						<option value="{$v['category']}">{$v['category']}</option>
+						{/loop}
+					</select> (用于控制模板调用，默认为空)
+				</td>
+			</tr>
+			<tr>
+				<td align="right">上级分类</td>
+				<td>
+					<select name="form[parent_id]" data-default="{$form['parent_id']}">
+						<option value="">无</option>
+						{loop Admin::run()->article_categorys() $k $v}
+						<option value="{$v['cat_id']}">{$v['unique_id']}</option>
+						{/loop}
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">别名</td>
+				<td>
+					<input type="text" name="form[unique_id]" value="{$form['unique_id']}" size="40" class="inpMain"> (唯一)
+				</td>
+			</tr>
+			<tr>
+				<td align="right">分类名称</td>
+				<td>
+					<input type="text" name="form[cat_name]" value="{$form['cat_name']}" size="40" class="inpMain">
+				</td>
+			</tr>
+			<tr>
+				<td align="right">排序</td>
+				<td>
+					<input type="text" name="form[sort]" value="{intval($form['sort'])}" size="5" class="inpMain">
+				</td>
+			</tr>
+			<tr>
+				<td align="right">标题</td>
+				<td>
+					<input type="text" name="form[title]" value="{$form['title']}" size="40" class="inpMain">
+				</td>
+			</tr>
+			<tr>
+				<td align="right">关键字</td>
+				<td>
+					<input type="text" name="form[keywords]" value="{$form['keywords']}" size="40" class="inpMain">
+				</td>
+			</tr>
+			<tr>
+				<td align="right">简单描述</td>
+				<td>
+					<textarea name="form[description]" cols="60" rows="4" class="textArea">{$form['description']}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">页面内容</td>
+				<td>{Admin::run()->html_editor('form[content]',$form['content'])}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="hidden" name="act" value="admin/article_category_save" />
+					<input type="hidden" name="form[cat_id]" value="{intval($form['cat_id'])}" />
+					<input name="submit" class="btn" type="submit" value="提交">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>

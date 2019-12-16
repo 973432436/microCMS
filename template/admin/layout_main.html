@@ -1,0 +1,127 @@
+{php}Admin::run();{/php}<!DOCTYPE html>
+<html>
+	<head>
+		<title>管理中心首页-{$site_config['site_name']}</title>
+		{template header.html}
+	</head>
+	<body>
+		<div id="dcWrap">
+			<div id="dcHead">
+				<div id="head">
+					<div class="logo">
+						<a href="index.html" title="microCMS微型企业网站管理系统">企业网站管理系统</a>
+					</div>
+					<div class="box">
+						<h1 class="siteName">企业网站管理系统</h1>
+						<ul class="nav">
+							<li>
+								<a href="../index.html" target="_blank">查看站点</a>
+							</li>
+							<li>
+								<a href="javascript:;" onclick="_ajax('/?act=admin/clear_cache','','GET',callback_ajax, true)">清除缓存</a>
+							</li>
+							<li class="dropMenu">
+								<a href="JavaScript:void(0);" class="parent">您好，{$_SESSION['user_name']}</a>
+								<div class="menu">
+									<a href="manager_edit.html">编辑我的个人资料</a>
+								</div>
+							</li>
+							<li>
+								<a href="/?act=admin/logout">退出</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- dcHead 结束 -->
+			<div id="dcLeft">
+				<div id="menu">
+					<ul class="top">
+						<li>
+							<a href="index.html"><i class="home"></i><em>管理首页<span class="unum"><span></span></span></em></a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href="system.html"><i class="system"></i><em>系统设置</em></a>
+						</li>
+						<li>
+							<a href="nav.html"><i class="nav"></i><em>自定义导航栏</em></a>
+						</li>
+						<li>
+							<a href="show.html"><i class="show"></i><em>首页幻灯广告</em></a>
+						</li>
+						<li>
+							<a href="page.html"><i class="page"></i><em>单页面管理</em></a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href="product_category.html"><i class="productCat"></i><em>商品分类</em></a>
+						</li>
+						<li>
+							<a href="product.html"><i class="product"></i><em>商品列表</em></a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href="article_category.html"><i class="articleCat"></i><em>文章分类</em></a>
+						</li>
+						<li>
+							<a href="article.html"><i class="article"></i><em>文章列表</em></a>
+						</li>
+					</ul>
+					<ul class="bot">
+						<li>
+							<a href="backup.html"><i class="backup"></i><em>数据备份</em></a>
+						</li>
+						<li>
+							<a href="theme.html"><i class="theme"></i><em>设置模板</em></a>
+						</li>
+						<li>
+							<a href="manager.html"><i class="manager"></i><em>网站管理员</em></a>
+						</li>
+						<li>
+							<a href="manager_log.html"><i class="managerLog"></i><em>操作记录</em></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="dcMain">
+				<div id="handle">
+					<!-- 当前位置 -->
+					<ul>
+						<li class="dropMenu">
+							<a href="JavaScript:void(0);" class="drop"><i></i><em>快速新建</em></a>
+							<div class="menu">
+								<a href="nav_edit.html">自定义导航</a>
+								<a href="product_edit.html">商品</a>
+								<a href="article_edit.html">文章</a>
+								<a href="show.html">首页幻灯</a>
+								<a href="page_edit.html">单页面</a>
+								<a href="manager_edit.html">管理员</a>
+								<a href="link.html"></a>
+							</div>
+						</li>
+						<li class="last">
+							<a href="https://github.com/973432436/microCMS" target="_blank"><i class="help"></i><em>帮助中心</em></a>
+						</li>
+					</ul>
+				</div>
+				<div id="index" class="mainBox" style="padding-top:18px;height:auto!important;height:550px;min-height:550px;">
+					{layout_content}
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div id="dcFooter">
+				<div id="footer">
+					<ul>
+						版权所有 © 2016-{$year} microCMS，并保留所有权利。
+					</ul>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</body>
+
+</html>

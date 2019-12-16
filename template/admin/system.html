@@ -1,0 +1,51 @@
+{layout layout_main.html}
+<?php
+	$site_configs = Admin::run()->config(true);
+	$site_config_tabs = array_keys($site_configs);
+	$default_tab = current($site_config_tabs);
+?>
+<h3>系统设置</h3>
+<div class="idTabs">
+	<ul class="tab">
+		{loop $site_config_tabs $tab}
+		<li><a href="javascript:;" data-tab="#{$tab}" class="{$default_tab==$tab?'selected':''}">{ucfirst($tab)}</a></li>
+		{/loop}
+	</ul>
+	<div class="formBox">
+		<form action="" method="post" enctype="multipart/form-data" onsubmit="ajaxForm(this,callback_ajax,true);return false;">
+			{loop $site_configs $tab $configs}
+			<div id="{$tab}" style="display: {$tab==$default_tab?'block':'none'};">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="formTable">
+					{loop $configs $name $config}
+					<tr>
+						<th>{$name}</th>
+						<td>
+							{if $config['type']=='text'}
+							<input type="text" name="config[{$name}]" value="{$config['value']}" size="80" class="inpMain">
+							{elseif $config['type']=='radio'}
+							{loop array('no','yes') $radio_k $radio_v}
+							<label for="{$name}_{$radio_k}"><input type="radio" name="config[{$name}]" id="{$name}_{$radio_k}" value="{$radio_k}" {$radio_k==$config['value']?'checked="checked"':''}>{$radio_v}</label>
+							{/loop}
+							{elseif $config['type']=='textarea'}
+							<textarea name="config[{$name}]" cols="81" rows="3" class="textArea">{$config['value']}</textarea>
+							{/if}
+						</td>
+					</tr>
+					{/loop}
+				</table>
+			</div>
+			{/loop}
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="formTable" style="margin: 20px 0;">
+				<tbody>
+					<tr>
+						<th></th>
+						<td>
+							<input type="hidden" name="act" value="admin/config_update">
+							<input name="submit" class="btn" type="submit" value="提交">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>

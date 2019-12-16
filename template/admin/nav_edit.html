@@ -1,0 +1,73 @@
+{layout layout_main.html}
+<?php
+$nav_list = Admin::run()->nav_list(true);
+$nav_data = Admin::run()->nav_data();
+?>
+<h3><a href="nav.html" class="actionBtn">返回列表</a>自定义导航栏</h3>
+<form action="" method="post" onsubmit="ajaxForm(this,callback_ajax,true);return false;">
+	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+		<tbody>
+			<tr>
+				<td width="80" height="35" align="right">导航名称</td>
+				<td>
+					<input type="text" id="nav_name" name="nav[nav_name]" value="{$nav_data['nav_name']}" size="40" class="inpMain">
+				</td>
+			</tr>
+			<tr>
+				<td height="35" align="right">位置</td>
+				<td>
+					{loop Admin::run()->nav_category $k $category}
+					<label for="category_{$k}"><input type="radio" name="nav[category]" id="category_{$k}" value="{$category}" {$category==$nav_data['category']?'checked="true"':''}>{ucfirst($category)}</label>
+       				{/loop}
+				</td>
+			</tr>
+			<tr>
+				<td height="35" align="right">链接地址</td>
+				<td>
+					<input type="text" name="nav[nav_url]" value="{$nav_data['nav_url']}" size="60" class="inpMain">
+				</td>
+			</tr>
+			<tr>
+				<td height="35" align="right">上级分类</td>
+				<td id="parent">
+					<select name="nav[parent_id]">
+						<option value="0">无</option>
+<?php
+$loopSelectOption=function($itemsTree, $defaultVal='', $index=-1) use (&$loopSelectOption){
+	$str = '';
+	if( is_array($itemsTree) && $itemsTree ){
+		$index++;
+		foreach($itemsTree as $item){
+			$str .= sprintf('<option value="%s"%s>%s</option>', $item['id'], $item['id']==$defaultVal?'selected="selected"':'', str_repeat('-', $index).$item['nav_name']);
+			$str .= isset($item[$son])&&$item[$son]?$loopSelectOption($item[$son], $defaultVal, $index):'';
+		}
+	}
+	return $str;
+};
+echo $loopSelectOption($nav_list, $nav_data['parent_id']);
+?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td height="35" align="right">排序</td>
+				<td>
+					<input type="text" name="nav[sort]" value="{(int)$nav_data['sort']}" size="5" class="inpMain">
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="hidden" name="id" value="{$_REQUEST['id']}">
+					<input type="hidden" name="act" value="admin/nav_save">
+					<input name="submit" class="btn" type="submit" value="提交">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+<script>
+jQuery(function(){
+	setNavActive('nav.html');
+});
+</script>

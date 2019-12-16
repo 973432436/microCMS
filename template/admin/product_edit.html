@@ -1,0 +1,101 @@
+{layout layout_main.html}
+{php}
+$form = Admin::run()->product();
+{/php}
+<h3>编辑商品<a href="product.html" class="actionBtn">商品列表</a></h3>
+<form action="" method="post" enctype="multipart/form-data" class="formBasic" onsubmit="ajaxForm(this,callback_ajax,true);return false;">
+	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+		<tr>
+			<td width="80" align="right">商品分类</td>
+			<td>
+				<select name="cat_id" style="width:auto;">
+					<option value="">-无-</option>
+					{loop Admin::run()->product_categorys() $k $v}
+					<option value="{$v['cat_id']}">{$v['cat_name']}</option>
+					{/loop}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">页面别名</td>
+			<td><input type="text" name="form[filename]" id="" value="{$form['filename']}" size="50" class="inpMain"/></td>
+		</tr>
+		<tr>
+			<td align="right">商品名称</td>
+			<td><input type="text" name="form[name]" id="" value="{$form['name']}" size="50" class="inpMain"/></td>
+		</tr>
+		<tr>
+			<td align="right">商品编号</td>
+			<td><input type="text" name="form[sn]" id="" value="{$form['sn']}" size="50" class="inpMain"/></td>
+		</tr>
+		<tr>
+			<td align="right">商品价格</td>
+			<td><input type="text" name="form[price]" id="" value="{$form['price']}" size="10" class="inpMain"/></td>
+		</tr>
+		<tr>
+			<td align="right">商品重量</td>
+			<td><input type="text" name="form[weight]" id="" value="{$form['weight']}" size="10" class="inpMain"/></td>
+		</tr>
+		<tr>
+			<td align="right">排序</td>
+			<td><input type="text" name="form[sort]" id="" value="{$form['sort']}" size="10" class="inpMain"/></td>
+		</tr>
+		<tr>
+			<td align="right">标题</td>
+			<td><input type="text" name="form[title]" id="" value="{$form['title']}" size="50" class="inpMain"/></td>
+		</tr>
+		<tr>
+			<td align="right">关键词</td>
+			<td><input type="text" name="form[keywords]" id="" value="{$form['keywords']}" size="50" class="inpMain"/></td>
+		</tr>
+		<tr>
+			<td align="right">页面描述</td>
+			<td><textarea name="form[description]" placeholder="description" rows="3" cols="52" class="inpMain"></textarea></td>
+		</tr>
+		<tr>
+			<td align="right">缩略图</td>
+			<td>
+				<input type="hidden" name="form[image]" value="{$form['image']}" data-file="form_file[]" />
+				<input type="file" name="form_file[]" multiple="multiple" class="inpFlie" onchange="ajaxFileUpload(this,location.href,{'act':'admin/file_upload'},callback_ajax,'jpg|jpeg|png|gif')" /> <span>(支持多文件)</span>
+				<div data-imgs="form_file">
+					{if $form['image']}{loop explode(',',$form['image']) $k $v}
+					<img src="{$v}" width="100" height="100">
+					{/loop}{/if}
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">页面内容</td>
+			<td>{Admin::run()->html_editor('form[content]',$form['content'])}</td>
+		</tr>
+		<tr>
+			<td align="right">扩展属性</td>
+			<td>
+				<table width="100%" border="0" cellpadding="0" cellspacing="1" class="tableBasic ext-list">
+					<tr>
+						<th width="80">extension</th>
+						{loop array(1,2,3,4,5) $n}
+						<th>{$n}</th>
+						{/loop}
+					</tr>
+					{loop array(1,2,3) $m}
+					<tr>
+						<th>{intval(($m-1)*5+1)}~{$m*5}</th>
+						{loop array(1,2,3,4,5) $n}
+						<td><input type="text" name="form[ext{intval((($m-1)*5)+$n)}]" value="{$form['ext'.(($m-1)*5+$n)]}" title="ext{intval((($m-1)*5)+$n)}"></td>
+						{/loop}
+					</tr>
+					{/loop}
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td align="right"></td>
+			<td>
+				<input type="hidden" name="act" value="admin/product_save" />
+				<input type="hidden" name="form[id]" value="{intval($form['id'])}" />
+				<input name="submit" class="btn" type="submit" value="提交">
+			</td>
+		</tr>
+	</table>
+</form>
