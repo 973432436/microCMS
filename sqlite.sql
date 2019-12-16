@@ -44,8 +44,8 @@ INSERT INTO config (name, value, type, tab, box, sort) VALUES ('mail_password', 
 INSERT INTO config (name, value, type, tab, box, sort) VALUES ('mobile_name', '智网企业建站系统', 'text', 'base', '', 17);
 INSERT INTO config (name, value, type, tab, box, sort) VALUES ('mobile_title', '智网企业建站系统', 'text', 'base', '', 18);
 INSERT INTO config (name, value, type, tab, box, sort) VALUES ('mobile_keywords', '智网企业建站系统', 'text', 'base', '', 19);
-INSERT INTO config (name, value, type, tab, box, sort) VALUES ('site_theme', 'default01', 'text', 'base', '', 15);
-INSERT INTO config (name, value, type, tab, box, sort) VALUES ('mobile_theme', 'default01', 'text', 'base', '', 16);
+INSERT INTO config (name, value, type, tab, box, sort) VALUES ('site_theme', 'default', 'text', 'base', '', 15);
+INSERT INTO config (name, value, type, tab, box, sort) VALUES ('mobile_theme', 'default', 'text', 'base', '', 16);
 INSERT INTO config (name, value, type, tab, box, sort) VALUES ('site_pv', '0', 'text', 'base', '', 20);
 INSERT INTO config (name, value, type, tab, box, sort) VALUES ('mail_cloud', '0', 'radio', 'mail', '', 1);
 INSERT INTO config (name, value, type, tab, box, sort) VALUES ('mail_rss_url', '', 'text', 'mail', '', 7);
