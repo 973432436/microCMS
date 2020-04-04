@@ -88,5 +88,7 @@ INSERT INTO admin (user_id, user_name, email, password, action_list, add_time, l
 
 CREATE TABLE admin_log (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, create_time INTEGER NOT NULL DEFAULT '0', user_name varchar(32) DEFAULT '', action varchar(255) NOT NULL DEFAULT '', ip varchar(15) NOT NULL DEFAULT '');
 
+create table uri_list(uri varchar(256) not null default ('/') primary key, source_table varchar(32) not null default (''), source_id INTEGER not null default ('0'), unique(source_table,source_id));
+
 COMMIT TRANSACTION;
 PRAGMA foreign_keys = on;
