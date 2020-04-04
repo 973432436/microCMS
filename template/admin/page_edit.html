@@ -11,14 +11,18 @@ $page_parents = Admin::run()->page_parents();
 			<tr>
 				<td width="80" align="right">单页面标题</td>
 				<td>
-					<input type="text" name="form[page_name]" value="{$page_data['page_name']}" size="40" class="inpMain">
+					<input type="text" name="form[page_name]" value="{$page_data['page_name']}" size="50" class="inpMain">
 				</td>
 			</tr>
 			<tr>
 				<td align="right">文件名</td>
 				<td>
-					<input type="text" name="form[filename]" value="{$page_data['filename']}" size="40" class="inpMain">
+					<input type="text" name="form[filename]" value="{$page_data['filename']}" size="50" class="inpMain">
 				</td>
+			</tr>
+			<tr>
+				<td align="right">页面URI</td>
+				<td><input type="text" name="form[uri]" id="" value="{$page_data['uri']}" size="50" class="inpMain"/></td>
 			</tr>
 			<tr>
 				<td align="right">页面分类</td>

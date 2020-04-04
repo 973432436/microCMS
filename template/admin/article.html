@@ -26,7 +26,7 @@
 				{loop Admin::run()->article_list() $k $v}
 				<tr data-id="{$v['id']}">
 					<td align="center">{$v['id']}</td>
-					<td><a href="article_edit.html?id={$v['id']}">{$v['title']}</a></td>
+					<td><a href="{$v['uri']}" target="_blank">{$v['title']}</a></td>
 					<td align="center">
 						<a href="article.html?cat_id={$v['cat_id']}">{$v['category_info']['cat_name']}</a>
 					</td>
