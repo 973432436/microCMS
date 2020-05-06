@@ -14,3 +14,4 @@ released.php
 *esite.db
 index.php
 .gitignore
+doc/*
