@@ -1,4 +1,4 @@
-56c94e78dc6e749e4c8f68d3911890b8	/.filelist
+73a1abab665792515f762c7bd293d7c7	/.filelist
 af75750cfe5173251ef0bc52f977bc4b	/.htaccess
 c29dca9d97638f7f7419b00ee86ea22d	/favicon.ico
 de4f03097f0025ac0aabe9aac2f5bd5a	/LICENSE
@@ -8,7 +8,7 @@ f074ffb8e8d43ffc8d37ae07bd337905	/sqlite.sql
 2b43a65477c11e85effbe0423e558a57	/template/admin/article.html
 5da97d5e07d52866ff78b670320f0c8a	/template/admin/article_category.html
 e2a3b773cd8cb1f1e1ee60fd83a6093a	/template/admin/article_category_edit.html
-94a4fcc9494e013aafdccfa8a72ff910	/template/admin/article_edit.html
+391f897feb80e3c9184c85629d1f8ff4	/template/admin/article_edit.html
 f66abf0d2b536206ec2c41cd01ae9881	/template/admin/backup.html
 067a4d3642a26d9a2788b797a8814af9	/template/admin/backup_restore.html
 c6c2693404e53505138b7638e58def76	/template/admin/css/public.css
@@ -76,7 +76,7 @@ ab5e77935882bf765b0d0e0d50c7ee4d	/template/admin/page_edit.html
 ad4abafb06ecdcbd9285a890360f1f3f	/template/admin/product.html
 7779bd32efc1dd78ce84e7533819c866	/template/admin/product_category.html
 1f057835229033c9f84fd019f9f3e9b7	/template/admin/product_category_edit.html
-6b74afc87994ba2721c54a8de91d7c43	/template/admin/product_edit.html
+b7d46b4aa97712c2b14897308ddafb41	/template/admin/product_edit.html
 5e9c1dbcc5e5e09a5f9d9988a35d11aa	/template/admin/show.html
 14c218f2ee4bbc86178b22fb0ac8cd93	/template/admin/system.html
 e05190f41e924ade8744559b2b1a7d3e	/template/admin/theme.html

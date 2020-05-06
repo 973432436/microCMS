@@ -8,10 +8,10 @@ $form = Admin::run()->product();
 		<tr>
 			<td width="80" align="right">商品分类</td>
 			<td>
-				<select name="cat_id" style="width:auto;">
+				<select name="form[cat_id]" style="width:auto;">
 					<option value="">-无-</option>
 					{loop Admin::run()->product_categorys() $k $v}
-					<option value="{$v['cat_id']}">{$v['cat_name']}</option>
+					<option value="{$v['cat_id']}" {php}echo $form['cat_id']==$v['cat_id']?'selected':'';{/php}>{$v['cat_name']}</option>
 					{/loop}
 				</select>
 			</td>
