@@ -18,6 +18,11 @@ jQuery(function() {
     	jQuery(jQuery(this).attr('data-tab')).show();
     });
     setNavActive();
+    if( jQuery('select[data-default]').length>0 ){
+    	jQuery('select[data-default]').each(function(k,v){
+    		jQuery(this).find('option[value="'+jQuery(this).attr('data-default')+'"]').attr('selected','selected');
+    	});
+    }
 });
 
 function admin_login(d){

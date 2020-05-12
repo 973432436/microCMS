@@ -13,7 +13,7 @@
 		{loop Admin::run()->article_categorys() $k $v}
 		<tr data-id="{$v['cat_id']}">
 			<td align="left"><a href="article.html?cat_id={$v['cat_id']}">{$v['cat_name']}</a></td>
-			<td>{$v['unique_id']}</td>
+			<td>{$v['relation_str']}</td>
 			<td>{$v['title']}</td>
 			<td>{$v['keywords']}</td>
 			<td align="center">{$v['sort']}</td>

@@ -8,7 +8,7 @@ $form = Admin::run()->article();
 		<tr>
 			<td width="80" align="right">文章分类</td>
 			<td>
-				<select name="form[cat_id]" style="width:auto;">
+				<select name="form[cat_id]" style="width:auto;" data-default="{$form['cat_id']}">
 					<option value="">-无-</option>
 					{loop Admin::run()->article_categorys() $k $v}
 					<option value="{$v['cat_id']}" {php}echo $form['cat_id']==$v['cat_id']?'selected':'';{/php}>{$v['cat_name']}</option>

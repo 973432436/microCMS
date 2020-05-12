@@ -10,7 +10,7 @@ $form = Admin::run()->article_category();
 				<td width="80" align="right">内部分类</td>
 				<td>
 					<input type="text" name="form[category]" value="{$form['category']}" placeholder="" id="form_category" class="inpMain" />
-					<select id="category_list" style="width:auto;" onchange="jQuery('#form_category').val(this.value);">
+					<select id="category_list" style="width:auto;" onchange="jQuery('#form_category').val(this.value);" data-default="{$form['category']}">
 						<option value="">-选择-</option>
 						{loop Admin::run()->article_private_categorys() $k $v}
 						<option value="{$v['category']}">{$v['category']}</option>
