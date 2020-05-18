@@ -1,4 +1,4 @@
-4edf6ce1bc62e207041b5242f52e189d	/.filelist
+ad7a48c7aeb2a105d0dd1fb95500319f	/.filelist
 af75750cfe5173251ef0bc52f977bc4b	/.htaccess
 c29dca9d97638f7f7419b00ee86ea22d	/favicon.ico
 de4f03097f0025ac0aabe9aac2f5bd5a	/LICENSE
@@ -12,7 +12,7 @@ ec4b0c0b33f59c8aefce42dc679c5bdd	/template/admin/article_edit.html
 f66abf0d2b536206ec2c41cd01ae9881	/template/admin/backup.html
 067a4d3642a26d9a2788b797a8814af9	/template/admin/backup_restore.html
 c6c2693404e53505138b7638e58def76	/template/admin/css/public.css
-c37f0525b069a8755d2309d2187f50d6	/template/admin/header.html
+a99b7622e32f0507ad2af9c7021a6b6c	/template/admin/header.html
 80c06ab1333aea85bad658a993af5421	/template/admin/images/action_btn.gif
 d8c0dddbf9daa633e3a70f2dd9086cfa	/template/admin/images/dclogo.gif
 cf9640276051fb5258b8c84aa3424013	/template/admin/images/dclogo.png
@@ -157,4 +157,4 @@ d0df0265486f3af79924e55b2fb068bd	/template/admin/tinymce/skins/ui/oxide-dark/ski
 852a3ab527f342f44eabab963e15c8e4	/template/admin/tinymce/themes/mobile/theme.min.js
 5780174ff0f113c688665a66e87c1ef8	/template/admin/tinymce/themes/silver/theme.min.js
 a07ce3e05f5456a9e3cdbf095dc171ce	/template/admin/tinymce/tinymce.min.js
-e30d0675be4db941040c86612ff6736f	/index.released.php
+448aec3bb1e075e84ffdcfa35d72404b	/index.released.php
