@@ -29,7 +29,7 @@ function admin_login(d){
 	d = typeof(d)=='object'?d:JSON.parse(d);
 	callback_ajax(d);
 	if( d.status=='yes' ){
-		window.location.href = 'admin/index.html';
+		window.location.href = 'index.html';
 	}
 }
 
