@@ -10,7 +10,7 @@
 	{if $template}
 	<div class="enable">
 		<h2>当前启用的模板</h2>
-		<p><img src="{$template['logo']}" width="280" height="175"></p>
+		<p><img src="{Esite::app()->baseurl}{$template['logo']}" width="280" height="175"></p>
 		<dl>
 			<dt>{$template['title']}</dt>
 			<dd>平台：{$template['device']}</dd>
@@ -22,7 +22,7 @@
 	<div class="themeList">
 	{loop Admin::run()->template_list() $name $template}
 		<dl>
-			<p><img src="{$template['logo']}" width="280" height="175"></p>
+			<p><img src="{Esite::app()->baseurl}{$template['logo']}" width="280" height="175"></p>
 			<dt>{$template['title']}</dt>
 			<dd>平台：{$template['device']}
 				{if $name!=$site_config['site_theme']}

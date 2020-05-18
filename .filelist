@@ -1,4 +1,4 @@
-5de1fd57baadcf1c57d2be1363fc1f86	/.filelist
+2384aa80cb7c3a6e8ad782d74b7bc704	/.filelist
 af75750cfe5173251ef0bc52f977bc4b	/.htaccess
 c29dca9d97638f7f7419b00ee86ea22d	/favicon.ico
 de4f03097f0025ac0aabe9aac2f5bd5a	/LICENSE
@@ -12,7 +12,7 @@ ec4b0c0b33f59c8aefce42dc679c5bdd	/template/admin/article_edit.html
 f66abf0d2b536206ec2c41cd01ae9881	/template/admin/backup.html
 067a4d3642a26d9a2788b797a8814af9	/template/admin/backup_restore.html
 c6c2693404e53505138b7638e58def76	/template/admin/css/public.css
-a99b7622e32f0507ad2af9c7021a6b6c	/template/admin/header.html
+cbf455cf11ce64bac163db89747445cb	/template/admin/header.html
 80c06ab1333aea85bad658a993af5421	/template/admin/images/action_btn.gif
 d8c0dddbf9daa633e3a70f2dd9086cfa	/template/admin/images/dclogo.gif
 cf9640276051fb5258b8c84aa3424013	/template/admin/images/dclogo.png
@@ -63,7 +63,7 @@ f448c593c242d134e9733a84c7a4d26c	/template/admin/js/jquery.form.min.js
 6027e9670bb1fa4cc7086e702b705889	/template/admin/js/jquery.tab.js
 b80def718e925ac363870da5fcf28a78	/template/admin/js/PHPjs.js
 f087a1437bf71f6bcd02d709d4149af4	/template/admin/js/template.js
-f8f6c2de8af70f4cf3406666bac2280f	/template/admin/layout_main.html
+c0c5dd3abe4e22cce95f09433e302971	/template/admin/layout_main.html
 b18e14d11050ce56077dafe3daf980a5	/template/admin/login.html
 5e0cd2ac8e22c89ff71eb042211f28b1	/template/admin/manager.html
 642a62074c71c08ee1d9d130e8f40888	/template/admin/manager_edit.html
@@ -79,7 +79,7 @@ ad4abafb06ecdcbd9285a890360f1f3f	/template/admin/product.html
 b7d46b4aa97712c2b14897308ddafb41	/template/admin/product_edit.html
 5e9c1dbcc5e5e09a5f9d9988a35d11aa	/template/admin/show.html
 14c218f2ee4bbc86178b22fb0ac8cd93	/template/admin/system.html
-e05190f41e924ade8744559b2b1a7d3e	/template/admin/theme.html
+6dd9184780421f1840df9be3dcd6728c	/template/admin/theme.html
 34b4708bbaf5fd65c8531c9abffac50f	/template/admin/theme_install.html
 23885fff305a5da7ba4994e6eda7c671	/template/admin/tinymce/changelog.txt
 03ec7cf962cf39bbffd09c9a225ba3b4	/template/admin/tinymce/jquery.tinymce.min.js
@@ -157,4 +157,4 @@ d0df0265486f3af79924e55b2fb068bd	/template/admin/tinymce/skins/ui/oxide-dark/ski
 852a3ab527f342f44eabab963e15c8e4	/template/admin/tinymce/themes/mobile/theme.min.js
 5780174ff0f113c688665a66e87c1ef8	/template/admin/tinymce/themes/silver/theme.min.js
 a07ce3e05f5456a9e3cdbf095dc171ce	/template/admin/tinymce/tinymce.min.js
-06fc11aeee6c45f3c72a9ed44560b0ae	/index.released.php
+7e2e332df7e76e5e93bd124cb723bff6	/index.released.php
