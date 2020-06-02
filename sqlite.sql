@@ -90,5 +90,7 @@ CREATE TABLE admin_log (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, create_ti
 
 create table uri_list(uri varchar(256) not null default ('/') primary key, source_table varchar(32) not null default (''), source_id INTEGER not null default ('0'), unique(source_table,source_id));
 
+create table form_sys(id INTEGER PRIMARY KEY AUTOINCREMENT, name varchar(8) not null default (''), title varchar(64) not null default (''), notes longtext, def_struct longtext);
+
 COMMIT TRANSACTION;
 PRAGMA foreign_keys = on;

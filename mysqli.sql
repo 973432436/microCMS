@@ -87,3 +87,5 @@ INSERT IGNORE INTO admin (user_id, user_name, email, password, action_list, add_
 CREATE TABLE IF NOT EXISTS admin_log (id int(11) NOT NULL AUTO_INCREMENT, create_time int(10) NOT NULL DEFAULT '0', user_name varchar(32) DEFAULT '', action varchar(255) NOT NULL DEFAULT '', ip varchar(15) NOT NULL DEFAULT '', primary key(id)) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 create table IF NOT EXISTS uri_list(uri varchar(256) not null default '/', source_table varchar(32) not null default '', source_id int(11) not null default '0', primary key(uri), unique key(source_table,source_id))ENGINE=MyISAM default charset=utf8;
+
+create table if not exists form_sys(id int(11) not null AUTO_INCREMENT, name varchar(8) not null default '', title varchar(64) not null default '', notes longtext, def_struct longtext, PRIMARY KEY(id))ENGINE=MyISAM DEFAULT CHARSET=utf8;
