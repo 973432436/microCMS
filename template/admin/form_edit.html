@@ -1,0 +1,219 @@
+{layout layout_main.html}
+{php}
+$form = Admin::run()->form_sys_info();
+{/php}
+<h3>{$form['id']?'编辑':'创建'}数据集
+	{if $form['id']}<a href="form.html?form_id={$form['id']}" class="actionBtn">查看数据集</a>{/if}
+</h3>
+<form action="" method="post" onsubmit="ajaxForm(this,callback_ajax,true);return false;">
+	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+		<tbody>
+			<tr>
+				<td width="100" align="right">数据集名称</td>
+				<td>
+					<input type="text" name="form[name]" value="{$form['name']}" size="40" class="inpMain">
+				</td>
+			</tr>
+			<tr>
+				<td align="right">数据集标题</td>
+				<td>
+					<input type="text" name="form[title]" value="{$form['title']}" size="40" class="inpMain">
+				</td>
+			</tr>
+			<tr>
+				<td align="right">数据集定义</td>
+				<td>
+					<p class="note-text">提示：[id]为系统默认自动添加的字段，请勿重复定义；“字段名”必需遵守[mysql/sqlite]命名规范；</p>
+					<div id="def_struct"></div>
+					<script type="text/html" id="form_column-tpl">
+						<span class="form-note">字段</span>
+						<input type="text" name="name" value="<%=name%>" size="10" class="inpMain" placeholder="" title="字母开头，必须遵守[mysql/sqlite]字段命名规范" />
+						<span class="form-note">数据类型为</span>
+						<select name="type" title="数据类型">
+							<option value=""></option>
+							<%jQuery.each(form_sys.types,function(k,v){%>
+							<option value="<%=k%>" <%=(k==type?'selected':'')%>><%=v%></option>
+							<%})%>
+						</select>
+						<span class="form-note">长度</span>
+						<input type="text" name="length" value="<%=length%>" size="3" class="inpMain" placeholder="" title="" />
+						<span class="form-note">默认值</span>
+						<input type="text" name="_default" value="<%=_default%>" size="15" class="inpMain" placeholder="NULL" title="" />
+						<span class="form-note">备注</span>
+						<input type="text" name="comment" value="<%=comment%>" size="15" class="inpMain" placeholder="" title="" />
+					</script>
+					<script type="text/html" id="def_struct-tpl">
+						<!--
+                        	作者：973432436@qq.com
+                        	时间：2020-06-03
+                        	描述：cols
+                       -->
+						<table width="99%">
+						<tr><th colspan="3" align="left">&nbsp;字段管理</th></tr>
+						<tr>
+							<th width="80">#</th>
+							<th width="" align="left">数据列定义</th>
+							<th width="100">操作</th>
+						</tr>
+                        <%if(Object.keys(cols).length>0){%>
+						<%jQuery.each(cols,function(k,v){%>
+						<tr>
+							<td align="center"><%=k+1%></td>
+							<td>
+								<%=v.name%>&nbsp;
+								<%if(v["type"]=='longtext'){%><%=v["type"]%><%}else{%><%=v["type"]%>(<%=v.length%>)<%}%>&nbsp;
+								<%if(v.default!=''&&v.default!='null'){%>default '<%=v.default%>'<%}%>&nbsp;
+								comment '<%=v.comment%>'
+							</td>
+							<td align="center">
+								<span class="btnGray" style="padding:4px;" onclick="form_sys.render('<%=v.name%>')">编辑</span>
+								<span class="btnGray" style="padding:4px;" onclick="form_sys.del_column('<%=v.name%>')">删除</span>
+							</td>
+						</tr>
+						<%});}%>
+						<tr>
+							<th align="center">添加/编辑</th>
+							<td id="form_column"></td>
+							<td align="center"><span class="btn" style="padding:4px 24px;" onclick="form_sys.edit_column()">保存</span></td>
+						</tr>
+						<tr><th colspan="3" align="left">&nbsp;字段约束(可选)-防止重复数据</th></tr>
+						<%if(Object.keys(uniques).length>0){%>
+						<%jQuery.each(uniques,function(k,v){%>
+						<tr>
+							<td align="center"><%=k+1%></td>
+							<td>unique key(<b><%=PHP.implode(',', v)%></b>)</td>
+							<td align="center"><span class="btnGray" style="padding:4px;" onclick="form_sys.del_unique(<%=k%>)">删除</span></td>
+						</tr>
+						<%});}%>
+						<tr>
+							<th align="center">添加约束</th>
+							<td>
+								<%jQuery.each(cols,function(k,v){%>
+								<label><input type="checkbox" name="unique" value="<%=v.name%>"><b><%=v.name%></b></label>&nbsp;&nbsp;
+								<%})%>
+							</td>
+							<td align="center"><span class="btn" style="padding:4px;" onclick="form_sys.add_unique()">保存</span></td>
+						</tr>
+						</table>
+					</script>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">数据集描述</td>
+				<td>{Admin::run()->html_editor('form[notes]',$form['notes'])}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<textarea name="form[def_struct]" style="display:none;">{$form['def_struct']}</textarea>
+					<input type="hidden" name="act" value="admin/form_sys_save" />
+					<input type="hidden" name="form[id]" value="{intval($form['id'])}" />
+					<input name="submit" class="btn" type="submit" value="提交">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+<script>
+var demo_struct = {
+	// 存储数据约束字段列表，可以存在多个
+	"uniques":[["column2","column3"],["column5"]],
+	// 存储列单元基本信息
+	"cols":[
+		{"name":"column2", "type":"int", "length":"11", "_default":"0", "comment":""},
+		{"name":"column3", "type":"varchar", "length":"32", "_default":"2020-06-03 01:08:32", "comment":""},
+		{"name":"column4", "type":"decimal", "length":"8,3", "_default":"0", "comment":""},
+		{"name":"column5", "type":"longtext", "length":"", "_default":"", "comment":""}
+	],
+	// 其它信息根据需要进行扩展
+};
+var form_sys = {};
+form_sys.types = {"varchar":"VARCHAR","longtext":"LONGTEXT","int":"INT","decimal":"DECIMAL"};
+form_sys.data = JSON.parse(jQuery('textarea[name="form[def_struct]"]').text()||'[]');
+form_sys.data = form_sys.data&&typeof(form_sys.data.uniques)!='undefined'?form_sys.data:{"uniques":[],"cols":[]};
+//form_sys.data = demo_struct;	// test
+form_sys.init = function(){
+	jQuery('#def_struct').html(template(jQuery('#def_struct-tpl').html(),form_sys.data));
+};
+form_sys.render = function(column_name){
+	form_sys.init();
+	let col_data = {"name":"", "type":"", "length":"", "_default":"", "comment":""};
+	if( column_name && form_sys.data.cols && Object.keys(form_sys.data.cols).length>0 ){
+		jQuery.each(form_sys.data.cols, function(k,v){
+			if( v.name==column_name ){
+				col_data = v;
+				return false;
+			}
+		});
+	}
+	jQuery('#form_column').html(template(jQuery('#form_column-tpl').html(),col_data));
+	jQuery('textarea[name="form[def_struct]"]').text(JSON.stringify(form_sys.data));
+};
+form_sys.edit_column = function(){
+	let o = jQuery('#form_column');
+	let d = {
+		"name":o.find('input[name="name"]').val().trim(),
+		"type":o.find('select[name="type"]').val().trim(),
+		"length":o.find('input[name="length"]').val().trim(),
+		"_default":o.find('input[name="_default"]').val().trim(),
+		"comment":o.find('input[name="comment"]').val().trim()
+	};
+	if( !(d["name"].length>0 && d["type"].length>0) ){
+		alert('保存失败，字段定义不符合sql规则');
+		return false;
+	}
+	if( PHP.in_array(d["name"], PHP.array_column(form_sys.data.cols,'name')) ){
+		jQuery.each(form_sys.data.cols, function(k,v){
+			if( v.name==d["name"] ){
+				form_sys.data.cols[k] = d;
+				return false;
+			}
+		});
+	}else{
+		form_sys.data.cols.push(d);
+	}
+	form_sys.render();
+};
+form_sys.del_column = function(column_name){
+	if( column_name && form_sys.data.cols && Object.keys(form_sys.data.cols).length>0 ){
+		for(let k in form_sys.data.cols){
+			if( form_sys.data.cols[k].name==column_name ){
+				form_sys.data.cols[k] = null;
+				form_sys.data.cols = PHP.array_values(PHP.array_filter(form_sys.data.cols));
+				console.log(form_sys.data.cols, k);
+				break;
+			}
+		}
+		form_sys.render();
+	}
+};
+form_sys.add_unique = function(){
+	let o = jQuery('#def_struct');
+	let d = [];
+	o.find('input[name="unique"]').each(function(k,v){
+		if( jQuery(this)[0].checked ){
+			d.push(jQuery(this).val());
+		}
+	});
+	console.log(d);
+	if( d.length ){
+		d.sort();
+		form_sys.data.uniques.push(d);
+		form_sys.render();
+	}
+};
+form_sys.del_unique = function(k){
+	if( form_sys.data.uniques && form_sys.data.uniques[k] ){
+		form_sys.data.uniques[k] = null;
+		form_sys.data.uniques = PHP.array_values(PHP.array_filter(form_sys.data.uniques));
+		form_sys.render();
+	}
+};
+
+
+
+
+jQuery(document).ready(function(){
+	form_sys.render();
+});
+</script>

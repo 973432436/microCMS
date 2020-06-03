@@ -1,0 +1,79 @@
+{layout layout_main.html}
+<?php
+$form_sys_info = Admin::run()->form_sys_info();
+$datalist = Admin::run()->form_data_list($form_sys_info['id']);
+?>
+<h3>数据集管理
+	{if $form_sys_info['id']}
+	({$form_sys_info['name']},ID={$form_sys_info['id']})
+	<a href="form_edit.html?form_id={$form_sys_info['id']}" class="actionBtn" title="注意：&#10;为防止数据丢失，已经初始化结构的数据集将无法重新定义结构，&#10;需要手动去数据库删除数据集对应的数据表才可自动根据设置信息重新创建对应数据表">编辑数据集</a>
+	{/if}
+	<a href="form_edit.html" class="actionBtn add">创建数据集</a>
+</h3>
+<div class="filter">
+	<form action="form.html" method="get">
+		<select name="form_id" data-default="{$form_sys_info['id']}">
+			<option value="">-选择数据集-</option>
+			{loop Admin::run()->form_sys_list() $k $v}
+			<option value="{$v['id']}" {$form_sys_info['id']==$v['id']?'selected="selected"':''} data-struct="{base64_encode($v['def_struct'])}">{$v['name']}</option>
+			{/loop}
+		</select>
+		<select name="name"></select>
+		<input name="keyword" type="text" class="inpMain" value="{$_REQUEST['keyword']}" size="20">
+		<input class="btnGray" type="submit" value="筛选">
+	</form>
+</div>
+<div id="list">
+	{if $datalist}
+	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+		<tbody>
+			<tr>
+				{loop array_keys(current($datalist)) $k $v}
+				<th align="left">{$v}</th>
+				{/loop}
+				<th width="80" align="center">操作</th>
+			</tr>
+			{loop $datalist $k1 $v1}
+			<tr data-id="{$v1['id']}">
+				{loop $v1 $k2 $v2}
+				<td align="center" title="{htmlentities($v2)}">{Helper::sub_str($v2,64)}</td>
+				{/loop}
+				<td align="center">
+					<!--<a href="form_data_edit.html?id={$v1['id']}" target="_blank">编辑</a> |-->
+					<a href="javascript:;" onclick="delete_row('form_data_{$form_sys_info['id']}',{$v1['id']})">删除</a>
+				</td>
+			</tr>
+			{/loop}
+		</tbody>
+	</table>
+	{else}
+	暂无数据，请先[选择/创建]一个数据集！
+	{/if}
+</div>
+<div class="clear"></div>
+<?php $pager_data = EsiteApp::app()->pager_data();?>
+<div class="pager">{$pager_data['summary_code']}{$pager_data['code']}</div>
+<script>
+jQuery(document).ready(function(){
+	var set_search_name = function(data_id){
+		var o = jQuery('select[name="form_id"]');
+		data_id = data_id?data_id:o.attr('data-default');
+		console.log(data_id);
+		if( data_id>0 ){
+			let struct = JSON.parse(PHP.base64_decode(o.find('option[value="'+data_id+'"]').attr('data-struct')));
+			if( struct.cols ){
+				jQuery('select[name="name"]').html('');
+				for(let k in struct.cols){
+					console.log(struct.cols[k]);
+					jQuery('select[name="name"]').append('<option value="'+struct.cols[k]["name"]+'">'+struct.cols[k]["name"]+'</option>');
+				}
+			}
+		}
+	};
+	jQuery('select[name="form_id"]').change(function(){
+		let data_id = jQuery(this).val();
+		set_search_name(data_id);
+	});
+	set_search_name();
+});
+</script>
