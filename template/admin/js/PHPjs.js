@@ -1328,6 +1328,101 @@
 		return arr;
 	};
 	
+PHP.array_column = function (input, ColumnKey, IndexKey = null) { // eslint-disable-line camelcase
+  //   discuss at: https://locutus.io/php/array_column/
+  //   original by: Enzo Dañobeytía
+  //   example 1: array_column([{name: 'Alex', value: 1}, {name: 'Elvis', value: 2}, {name: 'Michael', value: 3}], 'name')
+  //   returns 1: {0: "Alex", 1: "Elvis", 2: "Michael"}
+  //   example 2: array_column({0: {name: 'Alex', value: 1}, 1: {name: 'Elvis', value: 2}, 2: {name: 'Michael', value: 3}}, 'name')
+  //   returns 2: {0: "Alex", 1: "Elvis", 2: "Michael"}
+  //   example 3: array_column([{name: 'Alex', value: 1}, {name: 'Elvis', value: 2}, {name: 'Michael', value: 3}], 'name', 'value')
+  //   returns 3: {1: "Alex", 2: "Elvis", 3: "Michael"}
+  //   example 4: array_column([{name: 'Alex', value: 1}, {name: 'Elvis', value: 2}, {name: 'Michael', value: 3}], null, 'value')
+  //   returns 4: {1: {name: 'Alex', value: 1}, 2: {name: 'Elvis', value: 2}, 3: {name: 'Michael', value: 3}}
+
+  if (input !== null && (typeof input === 'object' || Array.isArray(input))) {
+    var newarray = []
+    if (typeof input === 'object') {
+      let temparray = []
+      for (let key of Object.keys(input)) {
+        temparray.push(input[key])
+      }
+      input = temparray
+    }
+    if (Array.isArray(input)) {
+      for (let key of input.keys()) {
+        if (IndexKey && input[key][IndexKey]) {
+          if (ColumnKey) {
+            newarray[input[key][IndexKey]] = input[key][ColumnKey]
+          } else {
+            newarray[input[key][IndexKey]] = input[key]
+          }
+        } else {
+          if (ColumnKey) {
+            newarray.push(input[key][ColumnKey])
+          } else {
+            newarray.push(input[key])
+          }
+        }
+      }
+    }
+    return Object.assign({}, newarray)
+  }
+};
+
+PHP.array_filter = function (arr, func) { // eslint-disable-line camelcase
+  //  discuss at: https://locutus.io/php/array_filter/
+  // original by: Brett Zamir (https://brett-zamir.me)
+  //    input by: max4ever
+  // improved by: Brett Zamir (https://brett-zamir.me)
+  //      note 1: Takes a function as an argument, not a function's name
+  //   example 1: var odd = function (num) {return (num & 1);}
+  //   example 1: array_filter({"a": 1, "b": 2, "c": 3, "d": 4, "e": 5}, odd)
+  //   returns 1: {"a": 1, "c": 3, "e": 5}
+  //   example 2: var even = function (num) {return (!(num & 1));}
+  //   example 2: array_filter([6, 7, 8, 9, 10, 11, 12], even)
+  //   returns 2: [ 6, , 8, , 10, , 12 ]
+  //   example 3: array_filter({"a": 1, "b": false, "c": -1, "d": 0, "e": null, "f":'', "g":undefined})
+  //   returns 3: {"a":1, "c":-1}
+
+  var retObj = {}
+  var k
+
+  func = func || function (v) {
+    return v
+  }
+
+  // @todo: Issue #73
+  if (Object.prototype.toString.call(arr) === '[object Array]') {
+    retObj = []
+  }
+
+  for (k in arr) {
+    if (func(arr[k])) {
+      retObj[k] = arr[k]
+    }
+  }
+
+  return retObj
+};
+
+PHP.array_values = function (input) { // eslint-disable-line camelcase
+  //  discuss at: https://locutus.io/php/array_values/
+  // original by: Kevin van Zonneveld (https://kvz.io)
+  // improved by: Brett Zamir (https://brett-zamir.me)
+  //   example 1: array_values( {firstname: 'Kevin', surname: 'van Zonneveld'} )
+  //   returns 1: [ 'Kevin', 'van Zonneveld' ]
+
+  var tmpArr = []
+  var key = ''
+
+  for (key in input) {
+    tmpArr[tmpArr.length] = input[key]
+  }
+
+  return tmpArr
+};
+	
 	PHP.in_array = function (needle, haystack, argStrict) { // eslint-disable-line camelcase
 	  //  discuss at: http://locutus.io/php/in_array/
 	  // original by: Kevin van Zonneveld (http://kvz.io)
