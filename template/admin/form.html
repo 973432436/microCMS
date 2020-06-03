@@ -36,7 +36,7 @@ $datalist = Admin::run()->form_data_list($form_sys_info['id']);
 			{loop $datalist $k1 $v1}
 			<tr data-id="{$v1['id']}">
 				{loop $v1 $k2 $v2}
-				<td align="center" title="{htmlentities($v2)}">{Helper::sub_str($v2,64)}</td>
+				<td align="{in_array($k2,array('id'))?'center':'left'}" title="{htmlentities($v2)}">{Helper::sub_str($v2,64)}</td>
 				{/loop}
 				<td align="center">
 					<!--<a href="form_data_edit.html?id={$v1['id']}" target="_blank">编辑</a> |-->
