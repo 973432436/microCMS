@@ -1946,7 +1946,7 @@ class Esite{
 	# 支付类型
 	public $pay_type = array('paypal', 'alipay');
 	#api版本
-	public $api_version = '20200603120708';
+	public $api_version = '20200603120802';
 	public $db_type = '@@db_type@@';
 	#站点通讯密钥
 	protected $auth_key = '@@auth_key@@';
