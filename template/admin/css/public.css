@@ -423,3 +423,6 @@ div[data-imgs="form_file"] img{margin: 2px;}
 #init{width: 600px;margin: auto;margin-top: 30px;padding: 5px;}
 .form-note{display:inline-block;background-color:#D6D6D6;-moz-border-radius:2px;-webkit-border-radius:2px;border:0;color:#000;font-size:14px;padding:4px 3px;font-weight:500;text-transform:capitalize;cursor:pointer;-webkit-appearance:none;vertical-align:middle}
 .note-text{font-size:12px;color:#909090;padding:3px 5px;}
+.no-padding{padding:0!important;background:#fff!important;}
+.no-padding input,.no-padding textarea{width:calc(100% - 12px);height:100%;border: 1px solid #fff;padding:2px 4px;}
+.no-padding input:focus,.no-padding textarea:focus{border: 1px solid #19b4ea;}

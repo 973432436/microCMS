@@ -9,6 +9,12 @@
 			<th align="left">操作记录</th>
 			<th width="100" align="center">IP地址</th>
 		</tr>
+		<tr>
+			<td class="no-padding" colspan="2"><input type="text" name="id" value="{$_GET['id']}" placeholder="..."></td>
+			<td class="no-padding"><input type="text" name="user_name" value="{$_GET['user_name']}" placeholder="..."></td>
+			<td class="no-padding"><input type="text" name="action" value="{$_GET['action']}" placeholder="..."></td>
+			<td class="no-padding"><input type="text" name="ip" value="{$_GET['ip']}" placeholder="..."></td>
+		</tr>
 		{loop Admin::run()->admin_log() $k $v}
 		<tr>
 			<td align="center">{$k+1}</td>

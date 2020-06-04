@@ -1,4 +1,4 @@
-993dff18bc542bd81e01aee2ed94b421	/.filelist
+bb560de692d3f1d0f0c5e1c07763fad9	/.filelist
 af75750cfe5173251ef0bc52f977bc4b	/.htaccess
 c29dca9d97638f7f7419b00ee86ea22d	/favicon.ico
 de4f03097f0025ac0aabe9aac2f5bd5a	/LICENSE
@@ -11,10 +11,10 @@ e4018ade5a819cba380bcbfb27803366	/sqlite.sql
 ec4b0c0b33f59c8aefce42dc679c5bdd	/template/admin/article_edit.html
 f66abf0d2b536206ec2c41cd01ae9881	/template/admin/backup.html
 067a4d3642a26d9a2788b797a8814af9	/template/admin/backup_restore.html
-1e7bc852f268b986a932d95ac72928cc	/template/admin/css/public.css
-09a38a6ed94ace9cbbe5c1708af2be1a	/template/admin/form.html
+ac020558992e58295cc6e4052c6d62af	/template/admin/css/public.css
+30dc66ac6449be4e3e888d3a0ce54f51	/template/admin/form.html
 ccadd18a972b6f9f009e1a502c372cc0	/template/admin/form_edit.html
-c202e3662e3117f082cc15bbea40bf76	/template/admin/header.html
+63e55b2742352284d051e365d401c2fa	/template/admin/header.html
 80c06ab1333aea85bad658a993af5421	/template/admin/images/action_btn.gif
 d8c0dddbf9daa633e3a70f2dd9086cfa	/template/admin/images/dclogo.gif
 cf9640276051fb5258b8c84aa3424013	/template/admin/images/dclogo.png
@@ -69,7 +69,7 @@ f087a1437bf71f6bcd02d709d4149af4	/template/admin/js/template.js
 b18e14d11050ce56077dafe3daf980a5	/template/admin/login.html
 5e0cd2ac8e22c89ff71eb042211f28b1	/template/admin/manager.html
 642a62074c71c08ee1d9d130e8f40888	/template/admin/manager_edit.html
-cb37b2d351bfbedf8bc3b675ad4bed38	/template/admin/manager_log.html
+ee48e16f2968fbcc4d4b5f5ad5fb2f38	/template/admin/manager_log.html
 32e6366a79b50d6f79bf143b4113c0a4	/template/admin/nav.html
 da608165f742654972b8b4671e2dac6d	/template/admin/nav_edit.html
 e9a9ca55d662a0a3762d240931c1e5f8	/template/admin/page.html
@@ -159,4 +159,4 @@ d0df0265486f3af79924e55b2fb068bd	/template/admin/tinymce/skins/ui/oxide-dark/ski
 852a3ab527f342f44eabab963e15c8e4	/template/admin/tinymce/themes/mobile/theme.min.js
 5780174ff0f113c688665a66e87c1ef8	/template/admin/tinymce/themes/silver/theme.min.js
 a07ce3e05f5456a9e3cdbf095dc171ce	/template/admin/tinymce/tinymce.min.js
-b41b8b945c1bc45f2ab2e1fb626511ae	/index.released.php
+25504d14e31c0ab641e2996161efa0fe	/index.released.php
