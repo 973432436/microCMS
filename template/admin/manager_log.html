@@ -1,30 +1,33 @@
 {layout layout_main.html}
 <h3>操作记录</h3>
-<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
-	<tbody>
-		<tr>
-			<th width="30" align="center">序号</th>
-			<th width="150" align="left">操作时间</th>
-			<th width="100" align="center">操作者</th>
-			<th align="left">操作记录</th>
-			<th width="100" align="center">IP地址</th>
-		</tr>
-		<tr>
-			<td class="no-padding" colspan="2"><input type="text" name="id" value="{$_GET['id']}" placeholder="..."></td>
-			<td class="no-padding"><input type="text" name="user_name" value="{$_GET['user_name']}" placeholder="..."></td>
-			<td class="no-padding"><input type="text" name="action" value="{$_GET['action']}" placeholder="..."></td>
-			<td class="no-padding"><input type="text" name="ip" value="{$_GET['ip']}" placeholder="..."></td>
-		</tr>
-		{loop Admin::run()->admin_log() $k $v}
-		<tr>
-			<td align="center">{$k+1}</td>
-			<td>{$v['create_time']}</td>
-			<td align="center">{$v['user_name']}</td>
-			<td align="left">{$v['action']}</td>
-			<td align="center">{$v['ip']}</td>
-		</tr>
-		{/loop}
-	</tbody>
-</table>
+<form action="" method="GET">
+	<input type="submit" value="搜索" style="display:none;" />
+	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+		<tbody>
+			<tr>
+				<th width="30" align="center">序号</th>
+				<th width="150" align="left">操作时间</th>
+				<th width="100" align="center">操作者</th>
+				<th align="left">操作记录</th>
+				<th width="100" align="center">IP地址</th>
+			</tr>
+			<tr>
+				<td class="no-padding" colspan="2"><input type="text" name="id" value="{Esite::app()->request['id']}" placeholder="..."></td>
+				<td class="no-padding"><input type="text" name="user_name" value="{Esite::app()->request['user_name']}" placeholder="..."></td>
+				<td class="no-padding"><input type="text" name="action" value="{Esite::app()->request['action']}" placeholder="..."></td>
+				<td class="no-padding"><input type="text" name="ip" value="{Esite::app()->request['ip']}" placeholder="..."></td>
+			</tr>
+			{loop Admin::run()->admin_log() $k $v}
+			<tr>
+				<td align="center">{$k+1}</td>
+				<td>{$v['create_time']}</td>
+				<td align="center">{$v['user_name']}</td>
+				<td align="left">{$v['action']}</td>
+				<td align="center">{$v['ip']}</td>
+			</tr>
+			{/loop}
+		</tbody>
+	</table>
+</form>
 <?php $pager_data = EsiteApp::app()->pager_data();?>
 <div class="pager">{$pager_data['summary_code']}{$pager_data['code']}</div>
