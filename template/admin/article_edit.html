@@ -62,7 +62,7 @@ $form = Admin::run()->article();
 		</tr>
 		<tr>
 			<td align="right">发布时间</td>
-			<td><input type="text" name="form[add_time]" id="" value="{$form['add_time']?$form['add_time']:date('Y-m-d H:i:s')}" size="50" class="inpMain"/></td>
+			<td><input type="text" name="form[add_time]" id="" value="{$form['add_time']?date('Y-m-d H:i:s',$form['add_time']):date('Y-m-d H:i:s')}" size="50" class="inpMain"/></td>
 		</tr>
 		<tr>
 			<td align="right"></td>
