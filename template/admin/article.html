@@ -32,7 +32,7 @@
 						<a href="article.html?cat_id={$v['cat_id']}">{$v['category_info']['cat_name']}</a>
 					</td>
 					<td align="center" title="{date('Y-m-d H:i:s', isset($v['add_time'])?$v['add_time']:$v['edit_time'])}">{date('Y-m-d', isset($v['add_time'])?$v['add_time']:$v['edit_time'])}</td>
-					<td>{$v['sort']}</td>
+					<td align="center">{$v['sort']}</td>
 					<td align="center">
 						<a href="article_edit.html?id={$v['id']}" target="_blank">编辑</a> |
 						<a href="javascript:;" onclick="delete_row('article',{$v['id']})">删除</a>
