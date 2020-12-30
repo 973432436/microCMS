@@ -1,11 +1,11 @@
-9e3af1cacd4faf26bb07f4a2e6ce4eae	/.filelist
+cb07c5c2956781af040372e3a44cc7e2	/.filelist
 af75750cfe5173251ef0bc52f977bc4b	/.htaccess
 c29dca9d97638f7f7419b00ee86ea22d	/favicon.ico
 de4f03097f0025ac0aabe9aac2f5bd5a	/LICENSE
 008d7607e80934c35e602037ffa2421b	/mysqli.sql
 1630ab1cf11c95b6b8df6b32deae9956	/README.md
 0d29cdf385a4d35f210ddce7f2bf0bf1	/sqlite.sql
-cccbad87e6aa037cf1922424ed9b07b9	/template/admin/article.html
+1f3386b7028d1d96d6d6fdd1c4fb1f0a	/template/admin/article.html
 30d96ddcd24a624df7fae364052aa4a8	/template/admin/article_category.html
 0c83226595448ac8166cf5b78b40bb76	/template/admin/article_category_edit.html
 501f3bf6a8cfe6aa64303b1443c4904d	/template/admin/article_edit.html
@@ -66,7 +66,7 @@ f448c593c242d134e9733a84c7a4d26c	/template/admin/js/jquery.form.min.js
 146331c0b3003f1b9ff6aa7a1c7d70c8	/template/admin/js/PHPjs.js
 f087a1437bf71f6bcd02d709d4149af4	/template/admin/js/template.js
 7c62dde60b6ba08ddfa5a07a8415145f	/template/admin/layout_main.html
-b18e14d11050ce56077dafe3daf980a5	/template/admin/login.html
+104d10e6be3b5fb39cfff08a841ef816	/template/admin/login.html
 5e0cd2ac8e22c89ff71eb042211f28b1	/template/admin/manager.html
 642a62074c71c08ee1d9d130e8f40888	/template/admin/manager_edit.html
 8ae50019f7a17ccc75375afc175641e6	/template/admin/manager_log.html
@@ -74,7 +74,7 @@ b18e14d11050ce56077dafe3daf980a5	/template/admin/login.html
 da608165f742654972b8b4671e2dac6d	/template/admin/nav_edit.html
 e9a9ca55d662a0a3762d240931c1e5f8	/template/admin/page.html
 ab5e77935882bf765b0d0e0d50c7ee4d	/template/admin/page_edit.html
-7d18a745782f0c757979f49f7cb09753	/template/admin/password_reset.html
+4a063d65912b4e8369a868693d05f813	/template/admin/password_reset.html
 ad4abafb06ecdcbd9285a890360f1f3f	/template/admin/product.html
 8a13e80ead6d82b9ccc9c7fa4aadbc94	/template/admin/product_category.html
 1f057835229033c9f84fd019f9f3e9b7	/template/admin/product_category_edit.html
@@ -159,4 +159,4 @@ d0df0265486f3af79924e55b2fb068bd	/template/admin/tinymce/skins/ui/oxide-dark/ski
 852a3ab527f342f44eabab963e15c8e4	/template/admin/tinymce/themes/mobile/theme.min.js
 5780174ff0f113c688665a66e87c1ef8	/template/admin/tinymce/themes/silver/theme.min.js
 a07ce3e05f5456a9e3cdbf095dc171ce	/template/admin/tinymce/tinymce.min.js
-cf6aeb9ade666b8480b76705e3ff7028	/index.released.php
+f6e73e57f738a6bb4c90faa8b4c83ddc	/index.released.php

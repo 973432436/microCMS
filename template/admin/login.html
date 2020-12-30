@@ -4,42 +4,43 @@
 	<head>
 		<title>管理中心登录-{$site_config['site_name']}</title>
 		{template header.html}
-		<body>
-			<div id="login">
-				<h1>企业网站管理系统</h1>
-				<form action="login.html" method="post" onsubmit="ajaxForm(this,admin_login,false);return false;">
-					<input type="hidden" name="act" value="admin/login">
-					<div class="form">
-						<div class="basicBox">
-							<dl>
-								<dt>用户名</dt>
-								<dd><input type="text" name="username" class="input"></dd>
-							</dl>
-							<dl>
-								<dt>密码</dt>
-								<dd><input type="password" name="password" class="input"></dd>
-							</dl>
-							<dl>
-								<dt>验证码</dt>
-								<dd>
-									<input type="password" name="captcha" class="input pull-left" style="width:200px;">
-									<span href="javascript:;" class="btn pull-right" style="padding:5px 5px;width:100px;">获取邮件验证码</span>
-									<div class="clearfix"></div>
-								</dd>
-							</dl>
-						</div>
-						<div class="btnBox">
-							<input type="submit" name="submit" class="btn" value="登录">
-							<div class="action">忘记密码？
-								<a href="password_reset.html">立即找回</a>
-							</div>
-						</div>
-						<div class="linkBox">
-							<a href="license.html" target="_blank">使用协议</a>
-							<a href="/">返回首页</a>
+	</head>
+	<body>
+		<div id="login">
+			<h1>企业网站管理系统</h1>
+			<form action="login.html" method="post" onsubmit="ajaxForm(this,admin_login,false);return false;">
+				<input type="hidden" name="act" value="admin/login">
+				<div class="form">
+					<div class="basicBox">
+						<dl>
+							<dt>用户名</dt>
+							<dd><input type="text" name="username" class="input"></dd>
+						</dl>
+						<dl>
+							<dt>密码</dt>
+							<dd><input type="password" name="password" class="input"></dd>
+						</dl>
+						<dl>
+							<dt>验证码</dt>
+							<dd>
+								<input type="password" name="captcha" class="input pull-left" style="width:200px;">
+								<span href="javascript:;" class="btn pull-right" style="padding:5px 5px;width:100px;">获取邮件验证码</span>
+								<div class="clearfix"></div>
+							</dd>
+						</dl>
+					</div>
+					<div class="btnBox">
+						<input type="submit" name="submit" class="btn" value="登录">
+						<div class="action">忘记密码？
+							<a href="password_reset.html">立即找回</a>
 						</div>
 					</div>
-				</form>
-			</div>
-		</body>
+					<div class="linkBox">
+						<a href="license.html" target="_blank">使用协议</a>
+						<a href="/">返回首页</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
 </html>
