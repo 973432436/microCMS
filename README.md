@@ -1,6 +1,9 @@
-### !!! 提示 gitee不稳定（造成此仓库代码异常）!!!请使用 --> https://github.com/973432436/microCMS
-### !!! 提示 gitee不稳定（造成此仓库代码异常）!!!请使用 --> https://github.com/973432436/microCMS
-### !!! 提示 gitee不稳定（造成此仓库代码异常）!!!请使用 --> https://github.com/973432436/microCMS
+### !!! 提示 gitee不稳定（造成此仓库代码异常）!!!请使用
+	--> https://github.com/973432436/microCMS
+### !!! 提示 gitee不稳定（造成此仓库代码异常）!!!请使用
+	--> https://github.com/973432436/microCMS
+### !!! 提示 gitee不稳定（造成此仓库代码异常）!!!请使用
+	--> https://github.com/973432436/microCMS
 
 # 旧版程序手段升级方法（升级后才可使用后台[系统升级]功能）
 修改网站FTP[/index.php]，将：
