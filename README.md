@@ -1,3 +1,7 @@
+# !!! 提示 gitee不稳定（造成此仓库代码异常）!!!请使用 --> https://github.com/973432436/microCMS
+# !!! 提示 gitee不稳定（造成此仓库代码异常）!!!请使用 --> https://github.com/973432436/microCMS
+# !!! 提示 gitee不稳定（造成此仓库代码异常）!!!请使用 --> https://github.com/973432436/microCMS
+
 # microCMS
 MicroCMS提供一个轻量级企业网站解决方案，基于 PHP + [MySQL/Sqlite] 的技术开发，整个系统压缩为单个PHP文件，全部源码开放，数据库结构完全兼容ECMS，适用于普通企业官网、企业商城类型网站搭建。
 
