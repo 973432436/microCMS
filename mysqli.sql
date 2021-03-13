@@ -48,7 +48,7 @@ INSERT IGNORE INTO config (name, value, type, tab, box, sort) VALUES ('site_pv',
 INSERT IGNORE INTO config (name, value, type, tab, box, sort) VALUES ('mail_cloud', '0', 'radio', 'mail', '', 1);
 INSERT IGNORE INTO config (name, value, type, tab, box, sort) VALUES ('mail_rss_url', '', 'text', 'mail', '', 7);
 INSERT IGNORE INTO config (name, value, type, tab, box, sort) VALUES ('db_cache_time', '300', 'text', 'cacheing', '', 1);
-INSERT IGNORE INTO config (name, value, type, tab, box, sort) VALUES ('tpl_cache_time', '86400', 'text', 'cacheing', '', 2);
+INSERT IGNORE INTO config (name, value, type, tab, box, sort) VALUES ('tpl_cache_time', '86400000', 'text', 'cacheing', '', 2);
 INSERT IGNORE INTO config (name, value, type, tab, box, sort) VALUES ('img_captcha', '1', 'radio', 'base', '', 20);
 INSERT IGNORE INTO config (name, value, type, tab, box, sort) VALUES ('weight_unit', 'Kg', 'text', 'shopping', '', 2);
 INSERT IGNORE INTO config (name, value, type, tab, box, sort) VALUES ('unit_freight', '3', 'text', 'shopping', '', 3);
