@@ -1,4 +1,4 @@
-64f377ff9b6e03bc5b7bed298fa719d6	/.filelist
+15e7ac1a705707e2c0db56ed4f382952	/.filelist
 af75750cfe5173251ef0bc52f977bc4b	/.htaccess
 c29dca9d97638f7f7419b00ee86ea22d	/favicon.ico
 608d9f72ea38b8abe8f95bd916a5244b	/LICENSE
@@ -95,7 +95,7 @@ bf0223e440edc9fdfda20cba7d82662d	/template/admin/tinymce/plugins/autolink/plugin
 faec3fb5497f8cf897e740e1b6476abc	/template/admin/tinymce/plugins/autoresize/plugin.min.js
 0ff270cae46a81b02c32c76477ede779	/template/admin/tinymce/plugins/autosave/plugin.min.js
 620df59ca5d5475e85b6dbfb49cdc4cc	/template/admin/tinymce/plugins/bbcode/plugin.min.js
-cfd61de0ffcb151b8f0107c06999b15c	/template/admin/tinymce/plugins/bdmap/bd.html
+b46fcbae6fa440792f7fffafedcab6c1	/template/admin/tinymce/plugins/bdmap/bd.html
 12339822619fd2b8c182cf5bfea388ff	/template/admin/tinymce/plugins/bdmap/map.html
 5b369eb92e6342ebcbd0da4912adfc52	/template/admin/tinymce/plugins/bdmap/plugin.js
 50ef6264129698926d2bd55e33027cbd	/template/admin/tinymce/plugins/bdmap/plugin.min.js
@@ -160,4 +160,4 @@ d0df0265486f3af79924e55b2fb068bd	/template/admin/tinymce/skins/ui/oxide-dark/ski
 852a3ab527f342f44eabab963e15c8e4	/template/admin/tinymce/themes/mobile/theme.min.js
 5780174ff0f113c688665a66e87c1ef8	/template/admin/tinymce/themes/silver/theme.min.js
 a07ce3e05f5456a9e3cdbf095dc171ce	/template/admin/tinymce/tinymce.min.js
-be3463d348909cc80cef1f94bf7fd9e1	/index.released.php
+7ce13a21f8d36479046642479136e0e5	/index.released.php
