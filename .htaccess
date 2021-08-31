@@ -1,4 +1,4 @@
-<Files ~ "\.(tpl|cache|db|sql|log)$">
+<Files ~ "\.(tpl|cache|db|sql|log|htaccess|conf)$">
 	<IfModule authz_core_module>
 		Require all denied
 	</IfModule>
@@ -15,6 +15,10 @@
 	DirectoryIndex index.php index.html
 	RewriteBase /
 	RewriteRule ^assets/(.+)$ template/default/assets/$1 [L]
+	RewriteCond %{REQUEST_URI} ^/admin/(css|images|js|tinymce)/.*$ [NC]
+	RewriteRule ^(admin/.+)$ template/$1 [L]
+	RewriteCond %{REQUEST_URI} ^\/template/admin/([^\/]*\.html)?$ [NC]
+	RewriteRule .* - [F]
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteRule ^(.*)$ index.php?/$1 [PT,L]
