@@ -15,13 +15,6 @@
 	DirectoryIndex index.php index.html
 	RewriteBase /
 	RewriteRule ^assets/(.+)$ template/default/assets/$1 [L]
-	
-	
-	# http://microcms.ebers.com/设计-topic.html
-	RewriteCond %{REQUEST_URI} ^\/([^\/]+)-topic.html.*$ [NC]
-	RewriteRule ^([^\/]+)-topic.html$ index.php?/articles.html?&q=$1 [PT,L]
-	
-	
 	RewriteCond %{REQUEST_URI} ^/admin/(css|images|js|tinymce)/.*$ [NC]
 	RewriteRule ^(admin/.+)$ template/$1 [L]
 	RewriteCond %{REQUEST_URI} ^\/template/admin/([^\/]*\.html)?$ [NC]
