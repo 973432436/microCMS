@@ -6,6 +6,7 @@ MicroCMS提供一个轻量级企业网站解决方案，基于 PHP + [MySQL/Sqli
 若站点未初始化，首次访问会自动进入数据初始化界面；
 
 # 后台登录
+演示地址：https://demo.esite.likun.work/admin/
 默认帐号：admin  默认密码：123456
 
 # 近期待完成工作
