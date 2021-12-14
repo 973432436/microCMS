@@ -1,10 +1,10 @@
-221226499349b6bde25f05d90fe4d3b1	/.filelist
+4bc52b28f244242eec33429b352bc7a1	/.filelist
 1f1b67a45c6bf1358c7f3184b18ffb94	/.htaccess
 c29dca9d97638f7f7419b00ee86ea22d	/favicon.ico
 608d9f72ea38b8abe8f95bd916a5244b	/LICENSE
 8f8499edf2230071883f1fd55e265b02	/mysqli.sql
 f2539e57923f24c9fad2bfb9ab59fd71	/nginx.conf
-1630ab1cf11c95b6b8df6b32deae9956	/README.md
+ba52f91716aee217ccfae9c409aecb2d	/README.md
 9869a3e60038da010a48dcbcb7ba3998	/sqlite.sql
 1f3386b7028d1d96d6d6fdd1c4fb1f0a	/template/admin/article.html
 30d96ddcd24a624df7fae364052aa4a8	/template/admin/article_category.html
@@ -15,7 +15,7 @@ f66abf0d2b536206ec2c41cd01ae9881	/template/admin/backup.html
 ac020558992e58295cc6e4052c6d62af	/template/admin/css/public.css
 30dc66ac6449be4e3e888d3a0ce54f51	/template/admin/form.html
 ccadd18a972b6f9f009e1a502c372cc0	/template/admin/form_edit.html
-63e55b2742352284d051e365d401c2fa	/template/admin/header.html
+45c062d3ac2a15559e296d706a8b7273	/template/admin/header.html
 80c06ab1333aea85bad658a993af5421	/template/admin/images/action_btn.gif
 d8c0dddbf9daa633e3a70f2dd9086cfa	/template/admin/images/dclogo.gif
 cf9640276051fb5258b8c84aa3424013	/template/admin/images/dclogo.png
@@ -160,4 +160,4 @@ d0df0265486f3af79924e55b2fb068bd	/template/admin/tinymce/skins/ui/oxide-dark/ski
 852a3ab527f342f44eabab963e15c8e4	/template/admin/tinymce/themes/mobile/theme.min.js
 5780174ff0f113c688665a66e87c1ef8	/template/admin/tinymce/themes/silver/theme.min.js
 a07ce3e05f5456a9e3cdbf095dc171ce	/template/admin/tinymce/tinymce.min.js
-459a39831b3928127a3efae39af223ec	/index.released.php
+685c33aba6732ba33d70671666007bce	/index.released.php
