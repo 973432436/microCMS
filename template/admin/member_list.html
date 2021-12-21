@@ -1,0 +1,46 @@
+{layout layout_main.html}
+<h3>会员列表</h3>
+<div id="list">
+	<form name="action" method="GET" action="">
+		<input type="submit" value="搜索" style="display:none;" />
+		<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+			<tbody>
+				<tr>
+					<th width="40" align="center">#</th>
+					<th width="150" align="center">邮箱</th>
+					<th width="150" align="center">用户名</th>
+					<th width="150" align="center">联系电话</th>
+					<th width="100" align="center">注册时间</th>
+					<th width="100" align="center">登录时间</th>
+					<th width="80" align="center">登录次数</th>
+					<th width=""></th>
+				</tr>
+				<tr style="background: #fff;">
+					<td class="no-padding"><input type="text" name="user_id" value="{$_REQUEST['user_id']}" placeholder="..."></td>
+					<td class="no-padding"><input type="text" name="email" value="{$_REQUEST['email']}" placeholder="..."></td>
+					<td class="no-padding"><input type="text" name="username" value="{$_REQUEST['username']}" placeholder="..."></td>
+					<td class="no-padding"><input type="text" name="phone" value="{$_REQUEST['phone']}" placeholder="..."></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				{loop Admin::run()->member_list() $k $v}
+				<tr data-id="{$v['user_id']}">
+					<td align="center">{$v['user_id']}</td>
+					<td align="center">{$v['email']}</td>
+					<td align="center">{$v['username']}</td>
+					<td align="center">{$v['phone']}</td>
+					<td align="center">{date('Y-m-d', $v['reg_time'])}</td>
+					<td align="center">{date('Y-m-d', $v['last_login'])}</td>
+					<td align="center">{$v['login_count']}</td>
+					<td></td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+	</form>
+</div>
+<div class="clear"></div>
+<?php $pager_data = EsiteApp::app()->pager_data();?>
+<div class="pager">{$pager_data['summary_code']}{$pager_data['code']}</div>

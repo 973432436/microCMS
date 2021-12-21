@@ -1,0 +1,66 @@
+{layout layout_main.html}
+<h3>会员留言</h3>
+<?php $msg = Admin::run()->msg_info();
+/**
+Array
+(
+    [id] => 2
+    [user_id] => 1
+    [title] => 请问下单后多久才能发货呢？
+    [content] => 你好，我在这看到一些我喜欢的商品，请问我是直接在线下单支付吗？订单提交后大概多久能发货呢 ？请告诉我具体时间，我好预算是否能在指定时间内收到货品。
+    [atime] => 1528466331
+    [username] => ebers
+    [email] => 973432436@qq.com
+    [reply] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 2
+                    [msg_id] => 2
+                    [user_id] => 1
+                    [content] => 按大华区物流效率发货后三天左右能收到货品。
+                    [atime] => 1528723407
+                    [email] => 973432436@qq.com
+                )
+        )
+)
+*/
+?>
+<style type="text/css">
+.formBasic h3{font-size: 14px;margin-bottom:10px;}
+</style>
+<table width="100%" border="0" cellpadding="8" cellspacing="0" class="formBasic">
+	<tbody>
+		<tr>
+			<th width="100">主题</th>
+			<td>
+				<h3>{$msg['title']}</h3>
+				<div class="clear"></div>
+				<p><b>{$msg['email']}</b>&nbsp;&nbsp;<b>{date('Y-m-d H:i:s', $msg['atime'])}</b></p>
+				<div class="content">{$msg['content']}</div>
+			</td>
+		</tr>
+		{loop $msg['reply'] $k $v}
+		<tr>
+			<th><?php echo $v['user_id']>0 ? "会&nbsp;&nbsp;&nbsp;&nbsp;员" : "管理员"; ?></th>
+			<td>
+				<p><b>{date('Y-m-d H:i:s', $v['atime'])}</b></p>
+				<div class="content">{$v['content']}</div>
+			</td>
+		</tr>
+		{/loop}
+		<tr>
+			<th>回复</th>
+			<td>
+				<form name="action" method="POST" action="/?act=admin/msg_reply" class="formBasic" onsubmit="ajaxForm(this,callback_ajax,true);return false;">
+				<input type="hidden" name="id" value="{$msg['id']}">
+				{Admin::run()->html_editor('content', '')}
+				<p><input type="submit" value="提交" class="btn" /></p>
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<form name="action" method="GET" action="/?act=admin/msg_reply">
+	<input type="submit" value="搜索" style="display:none;" />
+</form>

@@ -9,6 +9,12 @@
 <FilesMatch "(LICENSE|\.txt|\.md)$">
 	Header set Content-Type "text/plain; charset=UTF-8"
 </FilesMatch>
+<FilesMatch "\.(css)$">
+	Header set Content-Type "text/css; charset=UTF-8"
+</FilesMatch>
+<FilesMatch "\.(js)$">
+	Header set Content-Type "application/javascript; charset=UTF-8"
+</FilesMatch>
 <IfModule mod_rewrite.c>
 	RewriteEngine On
 	Options -Indexes
