@@ -3,15 +3,12 @@ MicroCMS提供一个轻量级企业网站解决方案，基于 PHP + [MySQL/Sqli
 
 <br>
 
-# 官网地址
-https://esite.likun.work/
-
+# 演示地址
+官网地址： https://esite.likun.work/
 <br>
-
-# 后台登录
-演示地址：https://demo.esite.likun.work/admin/
+后台演示： https://demo.esite.likun.work/admin/
 <br>
-默认帐号：`admin`	 默认密码：`123456`
+默认帐号： `admin`	 默认密码： `123456`
 
 <br>
 
