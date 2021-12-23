@@ -9,6 +9,9 @@ MicroCMS提供一个轻量级企业网站解决方案，基于 PHP + [MySQL/Sqli
 后台演示： https://demo.esite.likun.work/admin/
 <br>
 默认帐号： `admin`	 默认密码： `123456`
+```
+注意： 后台用户若是绑定了邮箱，则登录时候需要填写邮件验证码才可以登录
+```
 
 <br>
 
