@@ -289,7 +289,8 @@ function _ajax(post_url, post_value, method, refunction, async){
 		url: post_url,
 		data: post_value,
 		success: function(d){
-			refunction(d);
+			( typeof (refunction) == 'function' ) && refunction(d);
+			( refunction != callback_ajax ) && callback_ajax( d );
 			_loadingContent('none');
 		}
 	});

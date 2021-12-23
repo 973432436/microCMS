@@ -27,7 +27,6 @@ jQuery(function() {
 
 function admin_login(d){
 	d = typeof(d)=='object'?d:JSON.parse(d);
-	callback_ajax(d);
 	if( d.status=='yes' ){
 		window.location.href = 'index.html';
 	}
@@ -43,7 +42,6 @@ function delete_row(table,data_id){
 	if( confirm('Are you sure to delete?') ){
 		_ajax(location.href, 'act=admin/delete_row&id='+data_id+'&table='+table, 'GET', function(d){
 			d = typeof(d)=='object'?d:JSON.parse(d);
-			callback_ajax(d);
 			if( d.status=='yes' ){
 				jQuery('tr[data-id="'+data_id+'"]').remove();
 			}

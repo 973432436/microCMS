@@ -23,8 +23,8 @@
 						<dl>
 							<dt>验证码</dt>
 							<dd>
-								<input type="password" name="captcha" class="input pull-left" style="width:200px;">
-								<span href="javascript:;" class="btn pull-right" style="padding:5px 5px;width:100px;">获取邮件验证码</span>
+								<input type="text" name="captcha" class="input pull-left" style="width:200px;">
+								<a onclick="_ajax('/?act=admin/login&send_checkcode=1', {username:$('[name=username]').val(), password:$('[name=password]').val()}, 'POST')" class="btn pull-right" style="padding:5px 5px;width:100px;color: #fff;">获取邮件验证码</a>
 								<div class="clearfix"></div>
 							</dd>
 						</dl>

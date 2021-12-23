@@ -1,4 +1,4 @@
-6a3452b2fb233d91c8cd47f763ec1114	/.filelist
+cb4b888f989bac836716b34e8bef7b91	/.filelist
 1d31e2ff398d6496e181930d555151b3	/.htaccess
 c29dca9d97638f7f7419b00ee86ea22d	/favicon.ico
 608d9f72ea38b8abe8f95bd916a5244b	/LICENSE
@@ -57,8 +57,8 @@ c302b16cfc770d01820b8046b53ba7cd	/template/admin/images/top_add.gif
 c19d9a68c2b7ca66a03e316158203428	/template/admin/images/vcode.png
 821b50142e4f91beb521cb63633e25aa	/template/admin/index.html
 9897b207eb3730df9be864b8e7b4a1bb	/template/admin/init.html
-708b975681587974ebccaf190bdc6e12	/template/admin/js/global.js
-09b8decc27cb3c41ec0d95a326d01956	/template/admin/js/index.js
+e1df13056e9f5ea933ca4a4465740e6e	/template/admin/js/global.js
+981b5070f04dfc374966eba193fe359f	/template/admin/js/index.js
 4fc093ea19418409feb7c796a5eb3505	/template/admin/js/jquery.ajaxfileupload.js
 be381a2ffd0523d19a588b3e6adc3673	/template/admin/js/jquery.autoTextarea.js
 f448c593c242d134e9733a84c7a4d26c	/template/admin/js/jquery.form.min.js
@@ -68,7 +68,7 @@ f448c593c242d134e9733a84c7a4d26c	/template/admin/js/jquery.form.min.js
 f087a1437bf71f6bcd02d709d4149af4	/template/admin/js/template.js
 483d2bb23eb1b3db065e4efa42570b5e	/template/admin/layout_main.html
 7be562ce80568aa006aba110ba8b2210	/template/admin/license.html
-104d10e6be3b5fb39cfff08a841ef816	/template/admin/login.html
+1761a26097504e46b70685c4cc590864	/template/admin/login.html
 5e0cd2ac8e22c89ff71eb042211f28b1	/template/admin/manager.html
 642a62074c71c08ee1d9d130e8f40888	/template/admin/manager_edit.html
 8ae50019f7a17ccc75375afc175641e6	/template/admin/manager_log.html
@@ -164,4 +164,4 @@ d0df0265486f3af79924e55b2fb068bd	/template/admin/tinymce/skins/ui/oxide-dark/ski
 852a3ab527f342f44eabab963e15c8e4	/template/admin/tinymce/themes/mobile/theme.min.js
 5780174ff0f113c688665a66e87c1ef8	/template/admin/tinymce/themes/silver/theme.min.js
 a07ce3e05f5456a9e3cdbf095dc171ce	/template/admin/tinymce/tinymce.min.js
-f4d6bc704c57c099db307cfc636d2daa	/index.released.php
+b6cf6c542cc065bcfa69051cf9ab55f3	/index.released.php
