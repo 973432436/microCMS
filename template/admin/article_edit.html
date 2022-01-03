@@ -41,6 +41,10 @@ $form = Admin::run()->article();
 			<td><textarea name="form[description]" placeholder="description" rows="3" cols="52" class="inpMain">{$form['description']}</textarea></td>
 		</tr>
 		<tr>
+			<td align="right">关键词</td>
+			<td><input type="text" name="form[tag]" id="" value="{$form['tag']}" size="50" class="inpMain" placeholder="tag1,tag2,tag3,..." title="多个标签之间使用英文半角逗号分隔" /></td>
+		</tr>
+		<tr>
 			<td align="right">缩略图</td>
 			<td>
 				<input type="hidden" name="form[image]" value="{$form['image']}" data-file="form_file[]" />
