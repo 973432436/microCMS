@@ -72,27 +72,14 @@ $form = Admin::run()->product();
 			<td align="right">页面内容</td>
 			<td>{Admin::run()->html_editor('form[content]',$form['content'])}</td>
 		</tr>
+		<?php for( $i=1; $i<=15; $i++ ){
+			if( ( isset( $site_config['product-ext'.$i] ) && strlen($site_config['product-ext'.$i])>0 ) ){
+		?>
 		<tr>
-			<td align="right">扩展属性</td>
-			<td>
-				<table width="100%" border="0" cellpadding="0" cellspacing="1" class="tableBasic ext-list">
-					<tr>
-						<th width="80">extension</th>
-						{loop array(1,2,3,4,5) $n}
-						<th>{$n}</th>
-						{/loop}
-					</tr>
-					{loop array(1,2,3) $m}
-					<tr>
-						<th>{intval(($m-1)*5+1)}~{$m*5}</th>
-						{loop array(1,2,3,4,5) $n}
-						<td><input type="text" name="form[ext{intval((($m-1)*5)+$n)}]" value="{$form['ext'.(($m-1)*5+$n)]}" title="ext{intval((($m-1)*5)+$n)}"></td>
-						{/loop}
-					</tr>
-					{/loop}
-				</table>
-			</td>
+			<td align="right">{$site_config['product-ext'.$i]}</td>
+			<td><input type="text" name="form[ext{$i}]" value="{$form['ext'.$i]}" size="50" class="inpMain" /></td>
 		</tr>
+		<?php }} ?>
 		<tr>
 			<td align="right"></td>
 			<td>
