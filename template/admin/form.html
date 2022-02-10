@@ -37,7 +37,7 @@ $datalist = Admin::run()->form_data_list($form_sys_info['id']);
 			<tr data-id="{$v1['id']}">
 				{loop $v1 $k2 $v2}
 				<td align="<?php echo in_array($k2,array('id'))?'center':'left'; ?>" title="{htmlentities($v2)}" data-key="{$k2}">
-					<?php if( (stripos( $k2,'file' )!==FALSE) && $v2 ){ ?>
+					<?php if( (stripos( $k2,'file' )!==FALSE) && $v2 && file_exists(APPPATH.current( (array)explode(',', $v2) )) ){ ?>
 						<?php foreach( (array)explode(',', $v2) as $k3 => $v3 ){ ?>
 						<a href="{$v3}" data-key="{$k2}:{$k3}" class="icon-link" title="Preview&#13;点击查看文件" target="_blank"></a>&nbsp;
 						<?php } ?>
