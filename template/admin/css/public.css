@@ -62,7 +62,7 @@ p.cue{margin-top:5px}
 #menu li.cur a{color:#fff!important}
 #menu li a{display:block;height:38px;line-height:38px}
 #menu ul.top li a{color:#19b4ea}
-#menu li i{background:url(../images/icon_menu.png) no-repeat 18px 0;float:left;display:block;width:52px;height:38px}
+#menu li i,[class*="icon-"]{background:url(../images/icon_menu.png) no-repeat 18px 0;float:left;display:block;width:52px;height:38px}
 #menu li.cur i{background:url(../images/icon_menu_on.png) no-repeat 18px 0}
 #menu li em{display:block;margin-left:42px;height:38px;cursor:pointer}
 #menu .top li{height:27px}
@@ -80,7 +80,7 @@ p.cue{margin-top:5px}
 #menu li i.manager{background-position:18px -399px}
 #menu li i.managerLog{background-position:18px -439px}
 #menu li i.backup{background-position:18px -479px}
-#menu li i.link{background-position:18px -519px}
+#menu li i.link,.icon-link{background-position:18px -519px;}
 #menu li i.guestbook{background-position:18px -559px}
 #menu li i.mobile{background-position:18px -599px}
 #menu li i.user{background-position:18px -639px}
