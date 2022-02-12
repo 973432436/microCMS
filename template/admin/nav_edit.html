@@ -38,8 +38,8 @@ $loopSelectOption=function($itemsTree, $defaultVal='', $index=-1) use (&$loopSel
 	if( is_array($itemsTree) && $itemsTree ){
 		$index++;
 		foreach($itemsTree as $item){
-			$str .= sprintf('<option value="%s"%s>%s</option>', $item['id'], $item['id']==$defaultVal?'selected="selected"':'', str_repeat('-', $index).$item['nav_name']);
-			$str .= isset($item[$son])&&$item[$son]?$loopSelectOption($item[$son], $defaultVal, $index):'';
+			$str .= sprintf('<option value="%s"%s>%s</option>', $item['id'], $item['id']==$defaultVal?'selected="selected"':'', str_repeat('--', $index).$item['nav_name']);
+			$str .= isset($item['children'])&&$item['children']?$loopSelectOption($item['children'], $defaultVal, $index):'';
 		}
 	}
 	return $str;
@@ -71,3 +71,4 @@ jQuery(function(){
 	setNavActive('nav.html');
 });
 </script>
+<!--<?php print_r( $nav_list ); ?>-->
