@@ -103,6 +103,14 @@ $form = Admin::run()->form_sys_info();
 				<td>{Admin::run()->html_editor('form[notes]',$form['notes'])}</td>
 			</tr>
 			<tr>
+				<td align="right">邮件通知</td>
+				<td>
+					<?php foreach( [0=>'不发送邮件', 1=>'接收到数据使用邮件通知管理员'] as $k=>$v ){ ?>
+					<label><input type="radio" name="form[is_sendmail]" value="{$k}" <?php echo $k==@$form['is_sendmail']?'checked="checked"':''; ?> /><span>{$v}</span></label>
+					<?php } ?>
+				</td>
+			</tr>
+			<tr>
 				<td></td>
 				<td>
 					<textarea name="form[def_struct]" style="display:none;">{$form['def_struct']}</textarea>

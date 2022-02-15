@@ -92,7 +92,7 @@ CREATE TABLE admin_log (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, create_ti
 
 create table uri_list(uri varchar(256) not null default ('/') primary key, source_table varchar(32) not null default (''), source_id INTEGER not null default ('0'), unique(source_table,source_id));
 
-create table form_sys(id INTEGER PRIMARY KEY AUTOINCREMENT, name varchar(8) not null default (''), title varchar(64) not null default (''), notes longtext, def_struct longtext);
+create table form_sys(id INTEGER PRIMARY KEY AUTOINCREMENT, name varchar(8) not null default (''), title varchar(64) not null default (''), notes longtext, def_struct longtext, is_sendmail TINYINT(1) not null default '0');
 
 create view article_related as select a.*,c.category,c.parent_id,c.unique_id as cat_unique_id,c.cat_name,c.title as cat_title,c.keywords as cat_keywords,c.description as cat_description,c.content as cat_content,c.sort as cat_sort from article as a left outer join article_category as c on a.cat_id=c.cat_id;
 

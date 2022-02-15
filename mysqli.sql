@@ -90,6 +90,6 @@ CREATE TABLE IF NOT EXISTS admin_log (id int(11) NOT NULL AUTO_INCREMENT, create
 
 create table IF NOT EXISTS uri_list(uri varchar(256) not null default '/', source_table varchar(32) not null default '', source_id int(11) not null default '0', primary key(uri), unique key(source_table,source_id))ENGINE=MyISAM default charset=utf8;
 
-create table if not exists form_sys(id int(11) not null AUTO_INCREMENT, name varchar(8) not null default '', title varchar(64) not null default '', notes longtext, def_struct longtext, PRIMARY KEY(id))ENGINE=MyISAM DEFAULT CHARSET=utf8;
+create table if not exists form_sys(id int(11) not null AUTO_INCREMENT, name varchar(8) not null default '', title varchar(64) not null default '', notes longtext, def_struct longtext, is_sendmail tinyint(1) not null default '0', PRIMARY KEY(id))ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 create view article_related as select a.*,c.category,c.parent_id,c.unique_id as cat_unique_id,c.cat_name,c.title as cat_title,c.keywords as cat_keywords,c.description as cat_description,c.content as cat_content,c.sort as cat_sort from article as a left outer join article_category as c on a.cat_id=c.cat_id;
