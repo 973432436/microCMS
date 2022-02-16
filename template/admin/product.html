@@ -21,6 +21,7 @@
 					<th align="left"></th>
 					<th width="150" align="center">商品分类</th>
 					<th width="80" align="center">添加日期</th>
+					<th width="40" align="center">排序</th>
 					<th width="80" align="center">操作</th>
 				</tr>
 				{loop Admin::run()->product_list() $k $v}
@@ -33,6 +34,7 @@
 						<a href="product.html?cat_id={$v['cat_id']}">{$v['category_info']['cat_name']}</a>
 					</td>
 					<td align="center">{date('Y-m-d', $v['edit_time'])}</td>
+					<td align="center">{$v['sort']}</td>
 					<td align="center">
 						<a href="product_edit.html?id={$v['id']}" target="_blank">编辑</a> |
 						<a href="javascript:;" onclick="delete_row('product',{$v['id']})">删除</a>
