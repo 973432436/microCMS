@@ -4,7 +4,7 @@ BEGIN TRANSACTION;
 
 CREATE TABLE cart(id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL DEFAULT '0', product_id INTEGER NOT NULL DEFAULT '0', numbers	INTEGER NOT NULL DEFAULT '0', exts varchar(5120) not null default '', price decimal(10, 4) NOT NULL DEFAULT '0.00', money decimal(10, 4) NOT NULL DEFAULT '0.00', utime INTEGER NOT NULL DEFAULT '0');
 
-CREATE TABLE page (id INTEGER PRIMARY KEY AUTOINCREMENT, category VARCHAR (32) NOT NULL DEFAULT (''), filename varchar (128) NOT NULL DEFAULT '', parent_id smallint (5) NOT NULL DEFAULT '0', page_name varchar (150) NOT NULL DEFAULT '', title VARCHAR (128) DEFAULT (''), content longtext, keywords varchar (255) NOT NULL DEFAULT '', description varchar (255) NOT NULL DEFAULT '', sort INT (8) DEFAULT (0) NOT NULL, pv INTEGER NOT NULL DEFAULT '0');
+CREATE TABLE page (id INTEGER PRIMARY KEY AUTOINCREMENT, category VARCHAR (32) NOT NULL DEFAULT (''), filename varchar (128) NOT NULL DEFAULT '', parent_id smallint (5) NOT NULL DEFAULT '0', page_name varchar (150) NOT NULL DEFAULT '', title VARCHAR (128) DEFAULT (''), content longtext, keywords varchar (255) NOT NULL DEFAULT '', description varchar (255) NOT NULL DEFAULT '', sort INT (8) DEFAULT (0) NOT NULL, pv INTEGER NOT NULL DEFAULT '0', image varchar (5120) NOT NULL DEFAULT '');
 
 CREATE TABLE url_maps (url_new VARCHAR (128) NOT NULL PRIMARY KEY, url_sys VARCHAR (128) NOT NULL DEFAULT '', lavel VARCHAR (4) NOT NULL DEFAULT ('user'));
 

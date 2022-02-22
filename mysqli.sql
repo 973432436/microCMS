@@ -2,7 +2,7 @@ set names utf8;
 
 CREATE TABLE IF NOT EXISTS cart(id INT(11) NOT NULL AUTO_INCREMENT,user_id INT(11) NOT NULL DEFAULT '0',product_id INT(11) NOT NULL DEFAULT '0',numbers	INT(11) NOT NULL DEFAULT '0',exts varchar(5120) not null default '', price decimal(10, 4) NOT NULL DEFAULT '0.00', money decimal(10, 4) NOT NULL DEFAULT '0.00',utime INT(11) NOT NULL DEFAULT '0', PRIMARY KEY (id))ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS page (id INT(11) AUTO_INCREMENT not null,category VARCHAR (32) NOT NULL DEFAULT '',filename varchar (128) NOT NULL DEFAULT '', parent_id smallint (5) NOT NULL DEFAULT '0', page_name varchar (150) NOT NULL DEFAULT '', title VARCHAR (128) DEFAULT '', content longtext, keywords varchar (255) NOT NULL DEFAULT '', description varchar (255) NOT NULL DEFAULT '', sort INT (8) NOT NULL DEFAULT '0', pv int(10) NOT NULL DEFAULT '0', PRIMARY KEY (id))ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS page (id INT(11) AUTO_INCREMENT not null,category VARCHAR (32) NOT NULL DEFAULT '',filename varchar (128) NOT NULL DEFAULT '', parent_id smallint (5) NOT NULL DEFAULT '0', page_name varchar (150) NOT NULL DEFAULT '', title VARCHAR (128) DEFAULT '', content longtext, keywords varchar (255) NOT NULL DEFAULT '', description varchar (255) NOT NULL DEFAULT '', sort INT (8) NOT NULL DEFAULT '0', pv int(10) NOT NULL DEFAULT '0', image varchar (5120) NOT NULL DEFAULT '', PRIMARY KEY (id))ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS url_maps ( url_new VARCHAR (128) NOT NULL, url_sys VARCHAR (128) NOT NULL DEFAULT '', lavel VARCHAR (4) NOT NULL DEFAULT 'user', PRIMARY KEY (url_new))ENGINE=MyISAM DEFAULT CHARSET=utf8;
 

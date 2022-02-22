@@ -1,11 +1,11 @@
-fd544be780e8a90bea7b703398a93bde	/.filelist
+3a838e4b896f55879215fccccbd5f223	/.filelist
 1d31e2ff398d6496e181930d555151b3	/.htaccess
 c29dca9d97638f7f7419b00ee86ea22d	/favicon.ico
 608d9f72ea38b8abe8f95bd916a5244b	/LICENSE
-10bbb8fed08a52cf4ba43eaad9e7744d	/mysqli.sql
+22aa77a7cfe532837c028c5951a6de7d	/mysqli.sql
 f2539e57923f24c9fad2bfb9ab59fd71	/nginx.conf
 b806e6b35c84c1684925ce25f49124ce	/README.md
-b0d5dbc85f5b416579d2cf5439d5caba	/sqlite.sql
+87b3ad910a836a1826688e1dcf1e5b48	/sqlite.sql
 1f3386b7028d1d96d6d6fdd1c4fb1f0a	/template/admin/article.html
 30d96ddcd24a624df7fae364052aa4a8	/template/admin/article_category.html
 0c83226595448ac8166cf5b78b40bb76	/template/admin/article_category_edit.html
@@ -78,7 +78,7 @@ ba7535af810c8aa98a638e507550b965	/template/admin/member_list.html
 32e6366a79b50d6f79bf143b4113c0a4	/template/admin/nav.html
 8dacaa8a384facdfa3f27c4aa79b1b6d	/template/admin/nav_edit.html
 e9a9ca55d662a0a3762d240931c1e5f8	/template/admin/page.html
-ab5e77935882bf765b0d0e0d50c7ee4d	/template/admin/page_edit.html
+0991542206bd816c6709d935fc6fc41b	/template/admin/page_edit.html
 4a063d65912b4e8369a868693d05f813	/template/admin/password_reset.html
 9eda50dc88e5597fcbbc2546b437e0c6	/template/admin/product.html
 8a13e80ead6d82b9ccc9c7fa4aadbc94	/template/admin/product_category.html
@@ -164,4 +164,4 @@ d0df0265486f3af79924e55b2fb068bd	/template/admin/tinymce/skins/ui/oxide-dark/ski
 852a3ab527f342f44eabab963e15c8e4	/template/admin/tinymce/themes/mobile/theme.min.js
 5780174ff0f113c688665a66e87c1ef8	/template/admin/tinymce/themes/silver/theme.min.js
 a07ce3e05f5456a9e3cdbf095dc171ce	/template/admin/tinymce/tinymce.min.js
-7d07295c55d21e04ea298f62c9f2194d	/index.released.php
+360371e89850dd802fb1bd2278bc9a07	/index.released.php
