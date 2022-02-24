@@ -1,16 +1,29 @@
 {layout layout_main.html}
 <h3>单页面列表<a href="page_edit.html" class="actionBtn">添加单页面</a></h3>
 <div id="page">
-	{loop Admin::run()->page_list() $k $v}
-	<dl class="child{$v['parent_id']>0?0:1}">
-		<dt>
-			<a href="{$v['uri']}" target="_blank">{$v['page_name']}</a>
-			<p>{$v['title']}</p>
-		</dt>
-		<dd>
-			<a href="page_edit.html?id={$v['id']}">编辑</a> |
-			<a href="javascript:;" onclick="delete_row('page',{$v['id']})">删除</a>
-		</dd>
-	</dl>
-	{/loop}
+	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+		<tbody>
+			<tr>
+				<th width="40" align="center">编号</th>
+				<th width="200" align="left">标题</th>
+				<th width="150" align="left">分类</th>
+				<th width="80" align="left">URI</th>
+				<th width="40" align="center">排序</th>
+				<th width="" align="left">操作</th>
+			</tr>
+			{loop Admin::run()->page_list() $k $v}
+			<tr data-id="{$v['id']}">
+				<td align="center">{$v['id']}</td>
+				<td><a href="{$v['uri']}" target="_blank">{$v['page_name']}</a></td>
+				<td align="left">{$v['category']}</td>
+				<td align="left">{$v['uri']}</td>
+				<td align="center">{$v['sort']}</td>
+				<td align="left">
+					<a href="page_edit.html?id={$v['id']}">编辑</a> |
+					<a href="javascript:;" onclick="delete_row('page',{$v['id']})">删除</a>
+				</td>
+			</tr>
+			{/loop}
+		</tbody>
+	</table>
 </div>
