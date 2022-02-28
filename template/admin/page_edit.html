@@ -41,7 +41,7 @@ $page_parents = Admin::run()->page_parents();
 			<tr>
 				<td align="right">上级页面</td>
 				<td>
-					<select name="form[parent_id]">
+					<select name="form[parent_id]" data-default="{$page_data['parent_id']}">
 						<option value="0">--</option>
 						{loop $page_parents $k $v}
 						<option value="{$v['id']}" {$v['page_name']==$page_data['page_name']?'selected="selected"':''}>{$v['page_name']}</option>
