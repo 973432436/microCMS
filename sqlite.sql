@@ -14,7 +14,7 @@ CREATE TABLE slide (id INTEGER PRIMARY KEY AUTOINCREMENT, name varchar (60) NOT 
 
 CREATE TABLE task_list (id INTEGER PRIMARY KEY AUTOINCREMENT, task_url VARCHAR (128) NOT NULL DEFAULT '' UNIQUE, add_time INT (11) NOT NULL DEFAULT '0', last_time INT (11) NOT NULL DEFAULT '0', status INTEGER (1) DEFAULT ('0'), cycle INT (11) DEFAULT ('0'));
 
-CREATE TABLE product_category (cat_id INTEGER PRIMARY KEY AUTOINCREMENT, category VARCHAR (32) NOT NULL DEFAULT (''), parent_id smallint (5) NOT NULL DEFAULT '0', unique_id varchar (30) NOT NULL DEFAULT '' UNIQUE, cat_name varchar (32) NOT NULL DEFAULT '', title VARCHAR (128) DEFAULT (''), keywords varchar (255) NOT NULL DEFAULT '', description varchar (255) NOT NULL DEFAULT '', content TEXT, sort tinyint (1) NOT NULL DEFAULT '50');
+CREATE TABLE product_category (cat_id INTEGER PRIMARY KEY AUTOINCREMENT, category VARCHAR (32) NOT NULL DEFAULT (''), parent_id smallint (5) NOT NULL DEFAULT '0', unique_id varchar (30) NOT NULL DEFAULT '' UNIQUE, cat_name varchar (32) NOT NULL DEFAULT '', title VARCHAR (128) DEFAULT (''), keywords varchar (255) NOT NULL DEFAULT '', description varchar (255) NOT NULL DEFAULT '', content TEXT, sort tinyint (1) NOT NULL DEFAULT '50', image varchar (5120) NOT NULL DEFAULT '');
 
 CREATE TABLE nav (id INTEGER PRIMARY KEY AUTOINCREMENT, parent_id SMALLINT (5) NOT NULL DEFAULT '0', category VARCHAR (32) DEFAULT ('') NOT NULL, nav_name VARCHAR (255) NOT NULL, nav_url VARCHAR (256) NOT NULL, sort TINYINT (3) NOT NULL DEFAULT ('0'));
 
@@ -64,7 +64,7 @@ INSERT OR IGNORE INTO config (name, value, type, tab, box, sort) VALUES ('produc
 
 CREATE TABLE mail_subscribe (mail_to    VARCHAR (64)  NOT NULL PRIMARY KEY, user_ip    VARCHAR (16)  NOT NULL DEFAULT '0.0.0.0', add_time   INT (11)      NOT NULL DEFAULT '0');
 
-CREATE TABLE article_category (cat_id INTEGER PRIMARY KEY AUTOINCREMENT, category VARCHAR (32) NOT NULL DEFAULT (''), parent_id smallint (5) NOT NULL DEFAULT '0', unique_id varchar(30) NOT NULL DEFAULT '' UNIQUE, cat_name varchar (32) NOT NULL DEFAULT '', title VARCHAR (128) DEFAULT (''), keywords varchar (255) NOT NULL DEFAULT '', description varchar (255) NOT NULL DEFAULT '', content TEXT, sort tinyint (1) NOT NULL DEFAULT '50');
+CREATE TABLE article_category (cat_id INTEGER PRIMARY KEY AUTOINCREMENT, category VARCHAR (32) NOT NULL DEFAULT (''), parent_id smallint (5) NOT NULL DEFAULT '0', unique_id varchar(30) NOT NULL DEFAULT '' UNIQUE, cat_name varchar (32) NOT NULL DEFAULT '', title VARCHAR (128) DEFAULT (''), keywords varchar (255) NOT NULL DEFAULT '', description varchar (255) NOT NULL DEFAULT '', content TEXT, sort tinyint (1) NOT NULL DEFAULT '50', image varchar (5120) NOT NULL DEFAULT '');
 
 CREATE TABLE member_list(user_id INTEGER PRIMARY KEY AUTOINCREMENT, email varchar(32) not null default ('') UNIQUE, username VARCHAR(32) not null default (''), phone varchar(16) not null default (''), reg_time INTEGER NOT NULL DEFAULT '0', last_login INTEGER NOT NULL DEFAULT '0', login_count INTEGER NOT NULL DEFAULT '0', status INTEGER NOT NULL DEFAULT '0');
 

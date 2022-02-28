@@ -1,14 +1,14 @@
-33b7d4c3a4a3e19cc1f7082b6f608b74	/.filelist
+787aefbd8cc430ee0d466c7ff101a4a6	/.filelist
 1d31e2ff398d6496e181930d555151b3	/.htaccess
 c29dca9d97638f7f7419b00ee86ea22d	/favicon.ico
 608d9f72ea38b8abe8f95bd916a5244b	/LICENSE
-22aa77a7cfe532837c028c5951a6de7d	/mysqli.sql
+c5178437cf898a850f54e6b522b1d7b5	/mysqli.sql
 f2539e57923f24c9fad2bfb9ab59fd71	/nginx.conf
 b806e6b35c84c1684925ce25f49124ce	/README.md
-87b3ad910a836a1826688e1dcf1e5b48	/sqlite.sql
+aa7ce9f6a52156602f78deb11b5bb155	/sqlite.sql
 1f3386b7028d1d96d6d6fdd1c4fb1f0a	/template/admin/article.html
 30d96ddcd24a624df7fae364052aa4a8	/template/admin/article_category.html
-0c83226595448ac8166cf5b78b40bb76	/template/admin/article_category_edit.html
+c0a5aeeac8628b3562ab461404f65738	/template/admin/article_category_edit.html
 8d7f5c9cf3c78725aae63e441ffef442	/template/admin/article_edit.html
 f66abf0d2b536206ec2c41cd01ae9881	/template/admin/backup.html
 067a4d3642a26d9a2788b797a8814af9	/template/admin/backup_restore.html
@@ -82,7 +82,7 @@ ba7535af810c8aa98a638e507550b965	/template/admin/member_list.html
 4a063d65912b4e8369a868693d05f813	/template/admin/password_reset.html
 9eda50dc88e5597fcbbc2546b437e0c6	/template/admin/product.html
 8a13e80ead6d82b9ccc9c7fa4aadbc94	/template/admin/product_category.html
-1f057835229033c9f84fd019f9f3e9b7	/template/admin/product_category_edit.html
+005bc44e182ce716989e4088dd175ee4	/template/admin/product_category_edit.html
 6a8a4ce0788b64b430d9ed9272fa05bd	/template/admin/product_edit.html
 5e9c1dbcc5e5e09a5f9d9988a35d11aa	/template/admin/show.html
 14c218f2ee4bbc86178b22fb0ac8cd93	/template/admin/system.html
@@ -164,4 +164,4 @@ d0df0265486f3af79924e55b2fb068bd	/template/admin/tinymce/skins/ui/oxide-dark/ski
 852a3ab527f342f44eabab963e15c8e4	/template/admin/tinymce/themes/mobile/theme.min.js
 5780174ff0f113c688665a66e87c1ef8	/template/admin/tinymce/themes/silver/theme.min.js
 a07ce3e05f5456a9e3cdbf095dc171ce	/template/admin/tinymce/tinymce.min.js
-ff68a07af5c4b688de89ceec27ac2aaa	/index.released.php
+9afcf38676d977b4fae1ebccdf94ff3b	/index.released.php
