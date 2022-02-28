@@ -3,6 +3,7 @@
 <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
 	<tbody>
 		<tr>
+			<th width="40">ID</th>
 			<th width="120" align="left">分类名称</th>
 			<th align="left">层级关联</th>
 			<th align="left">标题</th>
@@ -12,6 +13,7 @@
 		</tr>
 		{loop Admin::run()->product_categorys() $k $v}
 		<tr data-id="{$v['cat_id']}">
+			<td>{$v['cat_id']}</td>
 			<td align="left"><a href="product.html?cat_id={$v['cat_id']}">{$v['cat_name']}</a></td>
 			<td>{$v['relation_str']}</td>
 			<td>{$v['title']}</td>
