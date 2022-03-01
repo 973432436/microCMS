@@ -1,4 +1,4 @@
-f1f429b95cd601c75cef19cf2c5df03e	/.filelist
+a6e1ac6132e17027e5f92026bc508dd6	/.filelist
 1d31e2ff398d6496e181930d555151b3	/.htaccess
 c29dca9d97638f7f7419b00ee86ea22d	/favicon.ico
 608d9f72ea38b8abe8f95bd916a5244b	/LICENSE
@@ -15,7 +15,7 @@ f66abf0d2b536206ec2c41cd01ae9881	/template/admin/backup.html
 6408f0974d82538b7e2bb91e0f851db4	/template/admin/css/public.css
 6191791d0fb76589475cce997b6ef935	/template/admin/form.html
 892dd7954b0765a90d8cb506cf885104	/template/admin/form_edit.html
-8bf750b2c5b04e6dba0849fa4e751853	/template/admin/header.html
+9bf07d7dde96671e35c3251c04c2dad2	/template/admin/header.html
 80c06ab1333aea85bad658a993af5421	/template/admin/images/action_btn.gif
 d8c0dddbf9daa633e3a70f2dd9086cfa	/template/admin/images/dclogo.gif
 cf9640276051fb5258b8c84aa3424013	/template/admin/images/dclogo.png
@@ -83,7 +83,7 @@ c060b315fb80a15b2a525f88d59e1881	/template/admin/page_edit.html
 9eda50dc88e5597fcbbc2546b437e0c6	/template/admin/product.html
 2d65f0d5708d4b7161439ae585c95419	/template/admin/product_category.html
 8d42488c977caa6830e5a176b757782a	/template/admin/product_category_edit.html
-1c26379fac9134be94a7890758e2d8e0	/template/admin/product_edit.html
+94b641a57f5ad619513d427bc61de0a4	/template/admin/product_edit.html
 5f15bf54b151ec302ac1a76cfabadb5c	/template/admin/show.html
 14c218f2ee4bbc86178b22fb0ac8cd93	/template/admin/system.html
 6dd9184780421f1840df9be3dcd6728c	/template/admin/theme.html
@@ -164,4 +164,4 @@ d0df0265486f3af79924e55b2fb068bd	/template/admin/tinymce/skins/ui/oxide-dark/ski
 852a3ab527f342f44eabab963e15c8e4	/template/admin/tinymce/themes/mobile/theme.min.js
 5780174ff0f113c688665a66e87c1ef8	/template/admin/tinymce/themes/silver/theme.min.js
 a07ce3e05f5456a9e3cdbf095dc171ce	/template/admin/tinymce/tinymce.min.js
-610ed9ab6386d3f82be26057b0674692	/index.released.php
+7b910105dcb6992018844171080cacee	/index.released.php
