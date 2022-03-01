@@ -85,10 +85,10 @@ function ajaxFileUpload(id_name,post_url,post_jsondata,_callback,file_ext){
 			(typeof(_callback)=='function')?_callback(d):null;
 			if( d.data && d.data.upfiles ){
 				jQuery('input[data-file="'+name+'"]').val(PHP.implode(',', d.data.upfiles));
-				if( jQuery('div[data-imgs="form_file"]').length ){
-					jQuery('div[data-imgs="form_file"]').html('');
+				if( jQuery('div[data-imgs="'+name+'"]').length ){
+					jQuery('div[data-imgs="'+name+'"]').html('');
 					jQuery.each(d.data.upfiles, function(k,v){
-						jQuery('div[data-imgs="form_file"]').append('<img src="'+v+'" width="100" height="100">');
+						jQuery('div[data-imgs="'+name+'"]').append('<img src="'+v+'" width="100" height="100">');
 					});
 				}
 			}
