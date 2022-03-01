@@ -1,4 +1,4 @@
-e1b88715d097a529889783143c668c1d	/.filelist
+40c93a55027249b19b82d58ff2f66268	/.filelist
 1d31e2ff398d6496e181930d555151b3	/.htaccess
 c29dca9d97638f7f7419b00ee86ea22d	/favicon.ico
 608d9f72ea38b8abe8f95bd916a5244b	/LICENSE
@@ -55,7 +55,7 @@ cae5071f558165fa9539a961d162317f	/template/admin/images/logo.gif
 f4697998b42f4d19fe3b0a1ad8188f5b	/template/admin/images/menu_cur.gif
 c302b16cfc770d01820b8046b53ba7cd	/template/admin/images/top_add.gif
 c19d9a68c2b7ca66a03e316158203428	/template/admin/images/vcode.png
-e4a26b93c92c6d9aaa87f26592ea4774	/template/admin/index.html
+a237e60fd0599632c961870c287224b2	/template/admin/index.html
 9897b207eb3730df9be864b8e7b4a1bb	/template/admin/init.html
 e1df13056e9f5ea933ca4a4465740e6e	/template/admin/js/global.js
 981b5070f04dfc374966eba193fe359f	/template/admin/js/index.js
@@ -164,4 +164,4 @@ d0df0265486f3af79924e55b2fb068bd	/template/admin/tinymce/skins/ui/oxide-dark/ski
 852a3ab527f342f44eabab963e15c8e4	/template/admin/tinymce/themes/mobile/theme.min.js
 5780174ff0f113c688665a66e87c1ef8	/template/admin/tinymce/themes/silver/theme.min.js
 a07ce3e05f5456a9e3cdbf095dc171ce	/template/admin/tinymce/tinymce.min.js
-04d1809556e3fa1ed99786daecab4584	/index.released.php
+0a4a3fe787c5ea9d008269a8811d9e17	/index.released.php
