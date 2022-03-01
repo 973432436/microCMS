@@ -426,3 +426,4 @@ div[data-imgs="form_file"] img{margin: 2px;}
 .no-padding{padding:0!important;background:#fff!important;}
 .no-padding input,.no-padding textarea{width:calc(100% - 12px);height: calc(100% - 2px);border: 1px solid #fff;padding: 0px 4px;}
 .no-padding input:focus,.no-padding textarea:focus{border: 1px solid #19b4ea;}
+[data-imgs] img{object-fit: inherit!important;border: 1px solid #ddd; margin: 5px 5px 5px 0;}
