@@ -50,6 +50,18 @@ $page_parents = Admin::run()->page_parents();
 				</td>
 			</tr>
 			<tr>
+				<td align="right">Banner横幅</td>
+				<td>
+					<input type="hidden" name="form[banner]" value="{$page_data['banner']}" data-file="form_banner[]" />
+					<input type="file" name="form_banner[]" multiple="multiple" class="inpFlie" onchange="ajaxFileUpload(this,location.href,{'act':'admin/file_upload'},callback_ajax,'jpg|jpeg|png|gif')" /> <span>(支持多文件)</span>
+					<div data-imgs="form_banner">
+						{if $page_data['banner']}{loop explode(',',$page_data['banner']) $k $v}
+						<img src="{$v}" width="100" height="100">
+						{/loop}{/if}
+					</div>
+				</td>
+			</tr>
+			<tr>
 				<td align="right">缩略图</td>
 				<td>
 					<input type="hidden" name="form[image]" value="{$page_data['image']}" data-file="form_file[]" />
