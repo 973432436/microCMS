@@ -5,7 +5,7 @@
 			<h2>单页面快速管理</h2>
 			<ul class="page">
 				{loop Admin::run()->page_list() $k $v}
-				<li><a href="page_edit.html?id={$v['id']}" class="child{$v['parent_id']>0?0:1}" target="_blank">{$v['page_name']}</a></li>
+				<li><a href="page_edit.html?id={$v['id']}" class="child{$v['parent_id']>0?0:1}" target="_blank">{Helper::sub_str($v['page_name'],18)}</a></li>
 				{/loop}
 				<div class="clear"></div>
 			</ul>
