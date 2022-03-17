@@ -1,3 +1,4 @@
+# 禁止访问敏感文件
 <Files ~ "\.(tpl|cache|db|sql|log|htaccess|conf)$">
 	<IfModule authz_core_module>
 		Require all denied
@@ -9,9 +10,11 @@
 <FilesMatch "(LICENSE|\.txt|\.md)$">
 	Header set Content-Type "text/plain; charset=UTF-8"
 </FilesMatch>
+# CSS默认使用utf-8编码
 <FilesMatch "\.(css)$">
 	Header set Content-Type "text/css; charset=UTF-8"
 </FilesMatch>
+# JS默认使用utf-8编码
 <FilesMatch "\.(js)$">
 	Header set Content-Type "application/javascript; charset=UTF-8"
 </FilesMatch>
@@ -20,11 +23,15 @@
 	Options -Indexes
 	DirectoryIndex index.php index.html
 	RewriteBase /
+	# 静态资源路径解析
 	RewriteRule ^assets/(.+)$ template/default/assets/$1 [L]
+	# 后台部分静态公共资源路径解析
 	RewriteCond %{REQUEST_URI} ^/admin/(css|images|js|tinymce)/.*$ [NC]
 	RewriteRule ^(admin/.+)$ template/$1 [L]
+	# 禁止直接访问模板文件
 	RewriteCond %{REQUEST_URI} ^\/template/admin/([^\/]*\.html)?$ [NC]
 	RewriteRule .* - [F]
+	# 动态请求处理
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteRule ^(.*)$ index.php?/$1 [PT,L]
