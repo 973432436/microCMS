@@ -25,6 +25,27 @@ jQuery(function() {
     }
 });
 
+function del_data_imgs( o ){
+	var that = $(o),
+		name = that.parents('[data-imgs]').attr('data-imgs'),
+		img_src = that.parents('[data-imgs] .imgs').find('img').attr('src'),
+		input_obj = $('input[data-file="'+ name +'"]'),
+		input_val = input_obj.val(),
+		input_vals = input_val.split(',');
+	if( input_vals ){
+		for( let k in input_vals ){
+			if( input_vals[k].indexOf( img_src )>-1 || img_src.indexOf( input_vals[k] )>-1 ){
+				input_vals[k] = null;
+				that.parents('[data-imgs] .imgs').remove();
+				break;
+			}
+		}
+		input_vals = PHP.array_unique( PHP.array_filter( input_vals, function( val ){ return val&&val.length >0; } ) );
+		input_val = PHP.implode( ',', input_vals );
+		input_obj.val( input_val );
+	}
+}
+
 function admin_login(d){
 	d = typeof(d)=='object'?d:JSON.parse(d);
 	if( d.status=='yes' ){
@@ -82,13 +103,14 @@ function ajaxFileUpload(id_name,post_url,post_jsondata,_callback,file_ext){
 		dataType: 'text',
 		success: function(d){
 			d = (typeof(d)=='object')?d:JSON.parse(d);
-			(typeof(_callback)=='function')?_callback(d):null;
+			( typeof(_callback)=='function' ) ? _callback(d) : null;
 			if( d.data && d.data.upfiles ){
-				jQuery('input[data-file="'+name+'"]').val(PHP.implode(',', d.data.upfiles));
+				var input_obj = jQuery( 'input[data-file="'+name+'"]' ),
+				old = input_obj.val();
+				jQuery( 'input[data-file="'+name+'"]' ).val( ( old ? (old + ',') :'' ) + PHP.implode(',', d.data.upfiles) );
 				if( jQuery('div[data-imgs="'+name+'"]').length ){
-					jQuery('div[data-imgs="'+name+'"]').html('');
 					jQuery.each(d.data.upfiles, function(k,v){
-						jQuery('div[data-imgs="'+name+'"]').append('<img src="'+v+'" width="100" height="100">');
+						jQuery('div[data-imgs="'+name+'"]').append('<div class="imgs"><img src="'+v+'" width="100" height="100"><div class="del-img" onclick="del_data_imgs(this)">删除</div></div>');
 					});
 				}
 			}

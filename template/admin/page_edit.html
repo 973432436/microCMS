@@ -58,6 +58,7 @@ $page_parents = Admin::run()->page_parents();
 						{if $page_data['banner']}{loop explode(',',$page_data['banner']) $k $v}
 						<img src="{$v}" width="100" height="100">
 						{/loop}{/if}
+						<div class="del-img">删除</div>
 					</div>
 				</td>
 			</tr>
@@ -70,6 +71,7 @@ $page_parents = Admin::run()->page_parents();
 						{if $page_data['image']}{loop explode(',',$page_data['image']) $k $v}
 						<img src="{$v}" width="100" height="100">
 						{/loop}{/if}
+						<div class="del-img">删除</div>
 					</div>
 				</td>
 			</tr>
