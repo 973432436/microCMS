@@ -1,9 +1,9 @@
-95d32c5bc2c3cfa460308c41ca7b2537	/.filelist
+46ea9c135177b6f4dab9cb55d950fe51	/.filelist
 a1e92f6ff081fce7ee8fcff50ea13706	/.htaccess
 c29dca9d97638f7f7419b00ee86ea22d	/favicon.ico
 608d9f72ea38b8abe8f95bd916a5244b	/LICENSE
 6c39baa90dd964ef8b7405864cdb3d32	/mysqli.sql
-fee4bae74050b14117e74474a04a7453	/nginx.conf
+4d8735aad409fbf539e7a7ea43a5e677	/nginx.conf
 229217d2a94ad03e60d2bf586b82daa8	/README.md
 2097477b8f9b21b9145abcc318c1cc7a	/sqlite.sql
 1f3386b7028d1d96d6d6fdd1c4fb1f0a	/template/admin/article.html
@@ -164,4 +164,4 @@ d0df0265486f3af79924e55b2fb068bd	/template/admin/tinymce/skins/ui/oxide-dark/ski
 852a3ab527f342f44eabab963e15c8e4	/template/admin/tinymce/themes/mobile/theme.min.js
 5780174ff0f113c688665a66e87c1ef8	/template/admin/tinymce/themes/silver/theme.min.js
 a07ce3e05f5456a9e3cdbf095dc171ce	/template/admin/tinymce/tinymce.min.js
-56d672f5e4a15f3f4097274b7310ff1c	/index.released.php
+40e7aaf74e0feb211332b6668aaf5a14	/index.released.php
