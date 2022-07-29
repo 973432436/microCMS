@@ -1,0 +1,33 @@
+{layout layout_main.html}
+<h3>页面URL列表</h3>
+<form action="" method="GET">
+	<input type="submit" value="搜索" style="display:none;" />
+	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+		<tbody>
+			<tr>
+				<th width="30" align="center">序号</th>
+				<th width="150" align="center">数据表</th>
+				<th width="" align="left">页面地址</th>
+				<th width="50" align="center">操作</th>
+			</tr>
+			<tr>
+				<td class="no-padding"><input type="text" name="source_id" value="{Esite::app()->request['source_id']}" placeholder="..."></td>
+				<td class="no-padding"><input type="text" name="source_table" value="{Esite::app()->request['source_table']}" placeholder="..."></td>
+				<td class="no-padding"><input type="text" name="uri" value="{Esite::app()->request['uri']}" placeholder="..."></td>
+				<td class="no-padding"></td>
+			</tr>
+			{loop Admin::run()->uri_list() $k $v}
+			<tr>
+				<td align="center">{$v['source_id']}</td>
+				<td>{$v['source_table']}</td>
+				<td align="center">{$v['uri']}</td>
+				<td align="center">
+					<a href="javascript:;" onclick="_ajax( '/?act=admin/uri_list&opt=reset', 'uri={urlencode($v['uri'])}' );" title="重新计算当前URI">刷新</a>
+				</td>
+			</tr>
+			{/loop}
+		</tbody>
+	</table>
+</form>
+<?php $pager_data = EsiteApp::app()->pager_data();?>
+<div class="pager">{$pager_data['summary_code']}{$pager_data['code']}</div>
